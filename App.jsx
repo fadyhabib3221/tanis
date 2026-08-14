@@ -4287,7 +4287,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             * { box-sizing: border-box; }
             body { font-family: Arial, Helvetica, sans-serif; color: #292524; padding: 32px; }
             .header { display: flex; align-items: center; gap: 16px; border-bottom: 2px solid #115e59; padding-bottom: 16px; margin-bottom: 24px; }
-            .header img { width: 90px; height: auto; object-fit: contain; }
+            .header img { width: 90px; height: 47px; object-fit: contain; }
             .header h1 { font-size: 20px; margin: 0; color: #115e59; }
             .header p { margin: 2px 0 0; font-size: 12px; color: #78716c; }
             h2 { font-size: 14px; color: #115e59; margin: 20px 0 8px; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -7683,8 +7683,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="relative bg-gradient-to-r from-teal-800 to-teal-900 px-6 pt-9 pb-8 text-center overflow-hidden">
               <Plane size={90} className="absolute -bottom-4 -left-6 text-white/10 rotate-12" />
               <MapPin size={54} className="absolute top-3 right-3 text-white/10" />
-              <div className="relative w-full mx-auto rounded-2xl bg-white shadow-lg flex items-center justify-center mb-3 p-4">
-                <img src={LOGO_DATA_URL} alt="TANIS International Travel" className="w-full h-auto object-contain" />
+              <div className="relative w-full mx-auto rounded-2xl bg-white shadow-lg flex items-center justify-center mb-3 p-4" style={{ aspectRatio: "500 / 262" }}>
+                <img src={LOGO_DATA_URL} alt="TANIS International Travel" className="w-full h-full object-contain" />
               </div>
               <h1 className="relative text-white font-semibold text-lg tracking-tight" style={{ fontFamily: "'Fraunces', serif" }}>Travel Agency Manager</h1>
               <p className="relative text-teal-200/70 text-[11px] mt-0.5">By Fady Habib</p>
