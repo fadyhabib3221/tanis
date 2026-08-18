@@ -10354,11 +10354,11 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 />
                 New ticket
               </label>
-              <label className="flex items-center gap-1.5 cursor-pointer select-none text-amber-800">
+              <label className="flex items-center gap-1.5 cursor-pointer select-none text-blue-800">
                 <input
                   type="radio"
                   name="ticketSpecialType"
-                  className="w-4 h-4 accent-amber-700"
+                  className="w-4 h-4 accent-blue-700"
                   checked={form.isReissued}
                   onChange={() => {
                     setForm({ ...form, isReissued: true });
@@ -10370,11 +10370,11 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 />
                 Exchange Ticket
               </label>
-              <label className="flex items-center gap-1.5 cursor-pointer select-none text-sky-800">
+              <label className="flex items-center gap-1.5 cursor-pointer select-none text-red-800">
                 <input
                   type="radio"
                   name="ticketSpecialType"
-                  className="w-4 h-4 accent-sky-700"
+                  className="w-4 h-4 accent-red-700"
                   checked={refundBoxOpen}
                   onChange={() => {
                     setForm({ ...form, isReissued: false, oldTicketNumber: "", oldTicketIssueDate: "" });
