@@ -404,7 +404,7 @@ class AppErrorBoundary extends React.Component {
           <h1 className="text-xl font-bold text-stone-900">Something went wrong</h1>
           <p className="text-sm text-stone-600 mt-2">The application hit an unexpected rendering error. Your saved data has not been intentionally cleared.</p>
           <div className="flex gap-2 mt-5">
-            <button type="button" onClick={() => window.location.reload()} className="px-4 py-2 rounded-lg bg-neutral-900 text-white text-sm font-semibold">Reload app</button>
+            <button type="button" onClick={() => window.location.reload()} className="px-4 py-2 rounded-lg bg-amber-800 text-white text-sm font-semibold">Reload app</button>
             <button type="button" onClick={() => this.setState({ hasError: false, error: null })} className="px-4 py-2 rounded-lg border border-stone-300 text-stone-700 text-sm font-semibold">Try again</button>
           </div>
         </div>
@@ -633,7 +633,7 @@ const TimeSelect = ({ value, onChange }) => {
     onChange(`${nh || "00"}:${nm || "00"}`);
   };
   return (
-    <div className="w-full flex items-center border border-stone-300 rounded-xl px-3 py-2 text-sm focus-within:outline-none focus-within:ring-2 focus-within:ring-neutral-800 bg-white">
+    <div className="w-full flex items-center border border-stone-300 rounded-xl px-3 py-2 text-sm focus-within:outline-none focus-within:ring-2 focus-within:ring-amber-700 bg-white">
       <select
         aria-label="Hour"
         className="flex-1 bg-transparent focus:outline-none appearance-none text-center"
@@ -1442,7 +1442,7 @@ const EmployeePermissionsModal = ({ emp, onClose, onSetRole, onSetPermission, on
           <div>
             <label className="text-xs text-stone-500 block mb-1">Full name</label>
             <input
-              className="w-full border border-stone-300 rounded-xl px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+              className="w-full border border-stone-300 rounded-xl px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
               value={draft.name}
               onChange={(ev) => setDraft({ ...draft, name: ev.target.value })}
             />
@@ -1450,7 +1450,7 @@ const EmployeePermissionsModal = ({ emp, onClose, onSetRole, onSetPermission, on
           <div>
             <label className="text-xs text-stone-500 block mb-1">Username</label>
             <input
-              className="w-full border border-stone-300 rounded-xl px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+              className="w-full border border-stone-300 rounded-xl px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
               value={draft.username}
               onChange={(ev) => setDraft({ ...draft, username: ev.target.value })}
             />
@@ -1460,7 +1460,7 @@ const EmployeePermissionsModal = ({ emp, onClose, onSetRole, onSetPermission, on
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
-                className="w-full border border-stone-300 rounded-xl pl-2 pr-8 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="w-full border border-stone-300 rounded-xl pl-2 pr-8 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 value={draft.password}
                 placeholder="Leave blank to keep current password"
                 onChange={(ev) => setDraft({ ...draft, password: ev.target.value })}
@@ -1477,7 +1477,7 @@ const EmployeePermissionsModal = ({ emp, onClose, onSetRole, onSetPermission, on
           <div>
             <label className="text-xs text-stone-500 block mb-1">Grade</label>
             <select
-              className="w-full border border-stone-300 rounded-xl px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+              className="w-full border border-stone-300 rounded-xl px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
               value={emp.role || ""}
               onChange={(ev) => {
                 const val = ev.target.value;
@@ -1510,7 +1510,7 @@ const EmployeePermissionsModal = ({ emp, onClose, onSetRole, onSetPermission, on
             type="button"
             onClick={handleSaveDetails}
             disabled={saving}
-            className="w-full bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-xl px-4 py-1.5 shadow-sm shadow-neutral-900/30 transition-colors disabled:opacity-50"
+            className="w-full bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-xl px-4 py-1.5 shadow-sm shadow-amber-800/30 transition-colors disabled:opacity-50"
           >
             Save
           </button>
@@ -1534,7 +1534,7 @@ const EmployeePermissionsModal = ({ emp, onClose, onSetRole, onSetPermission, on
                     type="button"
                     onClick={() => onSetSection(s.value, !sectionOn)}
                     className={`flex items-center gap-1.5 text-xs font-medium rounded-full px-2.5 py-1.5 border transition-colors ${
-                      sectionOn ? "bg-neutral-800 border-neutral-800 text-white" : "bg-white border-stone-300 text-stone-500 hover:bg-stone-50"
+                      sectionOn ? "bg-amber-700 border-amber-700 text-white" : "bg-white border-stone-300 text-stone-500 hover:bg-stone-50"
                     }`}
                   >
                     <Icon size={13} className={s.iconClassName || ""} /> {s.label}
@@ -1568,7 +1568,7 @@ const EmployeePermissionsModal = ({ emp, onClose, onSetRole, onSetPermission, on
                         !sectionOn
                           ? "opacity-40 cursor-not-allowed bg-white border-stone-200 text-stone-400"
                           : checked
-                          ? "bg-neutral-800 border-neutral-800 text-white"
+                          ? "bg-amber-700 border-amber-700 text-white"
                           : "bg-white border-stone-300 text-stone-500 hover:bg-stone-50"
                       }`}
                     >
@@ -1614,7 +1614,7 @@ const ToggleSwitch = ({ checked, onChange, disabled, label, description }) => (
       disabled={disabled}
       onClick={() => !disabled && onChange(!checked)}
       className={`shrink-0 mt-0.5 relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${
-        checked ? "bg-neutral-800" : "bg-stone-300"
+        checked ? "bg-amber-700" : "bg-stone-300"
       } ${disabled ? "cursor-not-allowed" : "cursor-pointer"}`}
     >
       <span
@@ -1924,8 +1924,8 @@ function MultiSelectDropdown({ label, icon: Icon, options, selected, onChange, p
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className={`w-auto max-w-[160px] flex items-center gap-1 border rounded-lg pl-7 pr-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white appearance-none relative ${
-          selected.length > 0 ? "border-neutral-800 text-neutral-900" : "border-stone-300 text-stone-700"
+        className={`w-auto max-w-[160px] flex items-center gap-1 border rounded-lg pl-7 pr-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white appearance-none relative ${
+          selected.length > 0 ? "border-amber-700 text-amber-800" : "border-stone-300 text-stone-700"
         }`}
       >
         {Icon && (
@@ -1948,7 +1948,7 @@ function MultiSelectDropdown({ label, icon: Icon, options, selected, onChange, p
                 type="checkbox"
                 checked={selected.includes(opt.value)}
                 onChange={() => toggleValue(opt.value)}
-                className="accent-neutral-800"
+                className="accent-amber-700"
               />
               <span className="truncate">{opt.label}</span>
             </label>
@@ -1957,7 +1957,7 @@ function MultiSelectDropdown({ label, icon: Icon, options, selected, onChange, p
             <button
               type="button"
               onClick={() => onChange([])}
-              className="w-full text-left px-3 py-1.5 text-xs text-neutral-800 hover:bg-stone-50 border-t border-stone-100 mt-1"
+              className="w-full text-left px-3 py-1.5 text-xs text-amber-700 hover:bg-stone-50 border-t border-stone-100 mt-1"
             >
               Clear {label}
             </button>
@@ -2004,7 +2004,7 @@ function ThFilter({ label, align = "left", options, selected, onChange, classNam
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
-            className={`shrink-0 rounded p-0.5 hover:bg-neutral-100 ${active ? "text-neutral-800" : "text-stone-400"}`}
+            className={`shrink-0 rounded p-0.5 hover:bg-amber-100 ${active ? "text-amber-700" : "text-stone-400"}`}
             title={`Filter ${label}`}
           >
             <Filter size={11} className={active ? "fill-current" : ""} />
@@ -2015,7 +2015,7 @@ function ThFilter({ label, align = "left", options, selected, onChange, classNam
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
-            className={`shrink-0 rounded p-0.5 hover:bg-neutral-100 ${active ? "text-neutral-800" : "text-stone-400"}`}
+            className={`shrink-0 rounded p-0.5 hover:bg-amber-100 ${active ? "text-amber-700" : "text-stone-400"}`}
             title={`Filter ${label}`}
           >
             <Filter size={11} className={active ? "fill-current" : ""} />
@@ -2037,7 +2037,7 @@ function ThFilter({ label, align = "left", options, selected, onChange, classNam
                   type="checkbox"
                   checked={selected.includes(opt.value)}
                   onChange={() => toggleValue(opt.value)}
-                  className="accent-neutral-800"
+                  className="accent-amber-700"
                 />
                 <span className="truncate">{opt.label}</span>
               </label>
@@ -2046,7 +2046,7 @@ function ThFilter({ label, align = "left", options, selected, onChange, classNam
               <button
                 type="button"
                 onClick={() => onChange([])}
-                className="w-full text-left px-3 py-1.5 text-xs text-neutral-800 hover:bg-stone-50 border-t border-stone-100 mt-1"
+                className="w-full text-left px-3 py-1.5 text-xs text-amber-700 hover:bg-stone-50 border-t border-stone-100 mt-1"
               >
                 Clear
               </button>
@@ -2121,7 +2121,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
     document.title = "Travel Agency Manager";
     const faviconSvg =
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">' +
-      '<rect width="24" height="24" rx="5" fill="#171717"/>' +
+      '<rect width="24" height="24" rx="5" fill="#92400e"/>' +
       '<g transform="rotate(45 12 12)">' +
       '<path d="M21,16V14L13,9V3.5C13,2.67 12.33,2 11.5,2C10.67,2 10,2.67 10,3.5V9L2,14V16L10,13.5V19L7.5,20.5V22L11.5,21L15.5,22V20.5L13,19V13.5L21,16Z" fill="#ffffff"/>' +
       "</g></svg>";
@@ -4576,11 +4576,11 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           <style>
             * { box-sizing: border-box; }
             body { font-family: Arial, Helvetica, sans-serif; color: #292524; padding: 32px; }
-            .header { display: flex; align-items: center; gap: 16px; border-bottom: 2px solid #171717; padding-bottom: 16px; margin-bottom: 24px; }
+            .header { display: flex; align-items: center; gap: 16px; border-bottom: 2px solid #92400e; padding-bottom: 16px; margin-bottom: 24px; }
             .header img { width: 90px; height: auto; object-fit: contain; }
-            .header h1 { font-size: 20px; margin: 0; color: #171717; }
+            .header h1 { font-size: 20px; margin: 0; color: #92400e; }
             .header p { margin: 2px 0 0; font-size: 12px; color: #78716c; }
-            h2 { font-size: 14px; color: #171717; margin: 20px 0 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+            h2 { font-size: 14px; color: #92400e; margin: 20px 0 8px; text-transform: uppercase; letter-spacing: 0.05em; }
             table { width: 100%; border-collapse: collapse; font-size: 13.5px; table-layout: fixed; }
             td.label { padding: 8px 10px; color: #78716c; width: 34%; border-bottom: 1px solid #e7e5e4; vertical-align: top; word-break: break-word; }
             td.value { padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #e7e5e4; vertical-align: top; word-break: break-word; line-height: 1.6; }
@@ -7996,9 +7996,9 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
   // ---------- Render: loading ----------
   if (loading || setupComplete === null) {
     return (
-      <div className="w-full min-h-screen bg-gradient-to-br from-neutral-50 via-stone-50 to-white flex items-center justify-center">
+      <div className="w-full min-h-screen bg-gradient-to-br from-amber-50 via-stone-50 to-white flex items-center justify-center">
         <style>{`@keyframes pdmFadeIn{from{opacity:0}to{opacity:1}} @keyframes pdmFly{0%{transform:translateX(-6px) rotate(45deg)}50%{transform:translateX(6px) rotate(45deg)}100%{transform:translateX(-6px) rotate(45deg)}}`}</style>
-        <p className="text-neutral-900/60 text-sm flex items-center gap-2" style={{ animation: "pdmFadeIn .3s ease-out both" }}>
+        <p className="text-amber-800/60 text-sm flex items-center gap-2" style={{ animation: "pdmFadeIn .3s ease-out both" }}>
           <Plane size={16} className="rotate-45" style={{ animation: "pdmFly 1.4s ease-in-out infinite" }} /> Loading...
         </p>
       </div>
@@ -8008,11 +8008,11 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
   // ---------- Render: first-run setup (only ever shown once, before any account exists) ----------
   if (employees && employees.length === 0 && !setupComplete) {
     return (
-      <div className="w-full min-h-screen bg-gradient-to-br from-neutral-50 via-stone-50 to-white flex items-center justify-center p-4">
+      <div className="w-full min-h-screen bg-gradient-to-br from-amber-50 via-stone-50 to-white flex items-center justify-center p-4">
         <style>{`@keyframes pdmPopIn{from{opacity:0;transform:translateY(10px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}`}</style>
-        <div className="bg-white rounded-2xl border border-stone-200 p-6 w-full max-w-sm shadow-xl shadow-black/5" style={{ animation: "pdmPopIn .3s cubic-bezier(0.16,1,0.3,1) both" }}>
+        <div className="bg-white rounded-2xl border border-stone-200 p-6 w-full max-w-sm shadow-xl shadow-amber-900/5" style={{ animation: "pdmPopIn .3s cubic-bezier(0.16,1,0.3,1) both" }}>
           <div className="flex items-center gap-2 mb-1">
-            <div className="bg-neutral-900/10 text-neutral-900 rounded-xl p-1.5">
+            <div className="bg-amber-800/10 text-amber-800 rounded-xl p-1.5">
               <Lock size={16} />
             </div>
             <h1 className="font-bold text-stone-900">Create the admin account</h1>
@@ -8024,22 +8024,22 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           <div className="space-y-3">
             <div>
               <label className="text-xs text-stone-500 block mb-1">Full name</label>
-              <input className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+              <input className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 value={setupName} onChange={(e) => setSetupName(e.target.value)} placeholder="e.g. Sara Ahmed" />
             </div>
             <div>
               <label className="text-xs text-stone-500 block mb-1">Username</label>
-              <input className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+              <input className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 value={setupUsername} onChange={(e) => setSetupUsername(e.target.value)} placeholder="sara" />
             </div>
             <div>
               <label className="text-xs text-stone-500 block mb-1">Password</label>
-              <input type="password" className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+              <input type="password" className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 value={setupPassword} onChange={(e) => setSetupPassword(e.target.value)} placeholder="••••••" />
             </div>
           </div>
           <button onClick={handleCreateFirstAdmin}
-            className="w-full mt-4 bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-neutral-900/30 ring-1 ring-inset ring-white/10 transition-colors">
+            className="w-full mt-4 bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-amber-800/30 ring-1 ring-inset ring-white/10 transition-colors">
             Create account and continue
           </button>
           <p className="text-xs text-stone-400 mt-4">
@@ -8057,8 +8057,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
   // anyone create a brand-new admin account without any credentials.
   if (employees && employees.length === 0 && setupComplete) {
     return (
-      <div className="w-full min-h-screen bg-gradient-to-br from-neutral-50 via-stone-50 to-white flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl border border-stone-200 p-6 w-full max-w-sm text-center shadow-xl shadow-black/5">
+      <div className="w-full min-h-screen bg-gradient-to-br from-amber-50 via-stone-50 to-white flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl border border-stone-200 p-6 w-full max-w-sm text-center shadow-xl shadow-amber-900/5">
           <Lock size={22} className="text-stone-400 mx-auto mb-2" />
           <h1 className="font-bold text-stone-900 mb-1">No accounts available</h1>
           <p className="text-xs text-stone-500">
@@ -8072,7 +8072,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
   // ---------- Render: login screen ----------
   if (!currentUser) {
     return (
-      <div className="w-full min-h-screen relative flex items-center justify-center p-4 overflow-hidden bg-gradient-to-br from-black via-neutral-900 to-[#000000]" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <div className="w-full min-h-screen relative flex items-center justify-center p-4 overflow-hidden bg-gradient-to-br from-amber-900 via-amber-800 to-[#451a03]" style={{ fontFamily: "'Inter', sans-serif" }}>
         <style>{`@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
           @keyframes pdmFadeIn { from { opacity: 0; } to { opacity: 1; } }
           @keyframes pdmPopIn { from { opacity: 0; transform: translateY(18px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
@@ -8089,7 +8089,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             className="absolute inset-0 opacity-[0.15]"
             style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "26px 26px" }}
           />
-          <div className="absolute -top-24 -left-24 w-72 h-72 bg-neutral-400/25 rounded-full blur-3xl" />
+          <div className="absolute -top-24 -left-24 w-72 h-72 bg-amber-400/25 rounded-full blur-3xl" />
           <div className="absolute -bottom-24 -right-16 w-80 h-80 bg-amber-500/20 rounded-full blur-3xl" />
           <Compass size={220} className="absolute -bottom-14 -right-14 text-white/[0.04] rotate-12" />
           <Anchor size={120} className="absolute top-[6%] -left-8 text-white/[0.05] -rotate-12" />
@@ -8108,15 +8108,15 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           {/* Boarding-pass card */}
           <div className="relative bg-white rounded-3xl shadow-2xl shadow-black/30 overflow-hidden" style={{ animation: "pdmPopIn .45s cubic-bezier(0.16,1,0.3,1) .1s both" }}>
             {/* Branded stub */}
-            <div className="relative bg-gradient-to-r from-neutral-900 to-black px-6 pt-9 pb-8 text-center overflow-hidden">
+            <div className="relative bg-gradient-to-r from-amber-800 to-amber-900 px-6 pt-9 pb-8 text-center overflow-hidden">
               <Plane size={90} className="absolute -bottom-4 -left-6 text-white/10 rotate-12" />
               <MapPin size={54} className="absolute top-3 right-3 text-white/10" />
               <div className="relative w-full mx-auto rounded-2xl bg-white shadow-lg flex items-center justify-center mb-3 p-4">
                 <img src={LOGO_DATA_URL} alt="TANIS International Travel" className="w-full h-auto object-contain" />
               </div>
               <h1 className="relative text-white font-semibold text-lg tracking-tight" style={{ fontFamily: "'Fraunces', serif" }}>Travel Agency Manager</h1>
-              <p className="relative text-neutral-200/70 text-[11px] mt-0.5">By Fady Habib</p>
-              <p className="relative text-neutral-50/90 text-xs mt-1">Sign in to manage tickets, sales &amp; bookings</p>
+              <p className="relative text-amber-200/70 text-[11px] mt-0.5">By Fady Habib</p>
+              <p className="relative text-amber-50/90 text-xs mt-1">Sign in to manage tickets, sales &amp; bookings</p>
 
               {/* Route code, like a boarding pass stub */}
               <div className="relative mt-4 flex items-center justify-center gap-3 text-white/80">
@@ -8130,8 +8130,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
 
             {/* Perforated tear line between stub and form */}
             <div className="relative h-0">
-              <div className="absolute -left-2.5 -top-2.5 w-5 h-5 rounded-full bg-black" />
-              <div className="absolute -right-2.5 -top-2.5 w-5 h-5 rounded-full bg-black" />
+              <div className="absolute -left-2.5 -top-2.5 w-5 h-5 rounded-full bg-amber-900" />
+              <div className="absolute -right-2.5 -top-2.5 w-5 h-5 rounded-full bg-amber-900" />
               <div className="absolute left-4 right-4 top-0 border-t-2 border-dashed border-stone-200" />
             </div>
 
@@ -8143,7 +8143,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   <label className="text-xs text-stone-500 block mb-1">Username</label>
                   <div className="relative">
                     <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
-                    <input className="w-full border border-stone-300 rounded-2xl pl-9 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-neutral-900"
+                    <input className="w-full border border-stone-300 rounded-2xl pl-9 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-800 focus:border-amber-800"
                       value={loginUsername} onChange={(e) => setLoginUsername(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && handleLogin()} placeholder="Username" autoFocus />
                   </div>
@@ -8153,7 +8153,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   <div className="relative">
                     <Lock size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
                     <input type={showPassword ? "text" : "password"}
-                      className="w-full border border-stone-300 rounded-2xl pl-9 pr-9 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-neutral-900"
+                      className="w-full border border-stone-300 rounded-2xl pl-9 pr-9 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-800 focus:border-amber-800"
                       value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && handleLogin()} placeholder="Password" />
                     <button type="button" onClick={() => setShowPassword(!showPassword)}
@@ -8164,7 +8164,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 </div>
               </div>
               <button onClick={handleLogin}
-                className="group w-full mt-5 bg-gradient-to-r from-neutral-900 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-2xl px-4 py-2.5 flex items-center justify-center gap-2 shadow-lg shadow-neutral-900/30 transition-all">
+                className="group w-full mt-5 bg-gradient-to-r from-amber-800 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-2xl px-4 py-2.5 flex items-center justify-center gap-2 shadow-lg shadow-amber-800/30 transition-all">
                 Sign in
                 <Plane size={15} className="rotate-45 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </button>
@@ -8222,7 +8222,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               ? `border-green-300 bg-green-100 ring-1 ring-inset ring-green-400 hover:bg-green-100 ${i > 0 ? "border-t-0" : ""}`
               : t.isReissued
               ? `border-sky-300 bg-sky-100 hover:bg-sky-200 ${i > 0 ? "border-t-0" : ""}`
-              : `border-stone-100 ${i > 0 ? "border-t-0" : ""} ${isMulti ? "bg-amber-50 hover:bg-amber-100" : "hover:bg-neutral-50/60"}`
+              : `border-stone-100 ${i > 0 ? "border-t-0" : ""} ${isMulti ? "bg-amber-50 hover:bg-amber-100" : "hover:bg-amber-50/60"}`
           }`}
         >
           <td className={`px-1 py-0 ${cellText} text-stone-400 whitespace-nowrap`}>{rn}</td>
@@ -8366,7 +8366,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
   return (
     <div
       dir="ltr"
-      className="w-full min-h-screen bg-gradient-to-b from-stone-50 via-white to-neutral-50/50 text-stone-800 anim-fade-in"
+      className="w-full min-h-screen bg-gradient-to-b from-stone-50 via-white to-amber-50/50 text-stone-800 anim-fade-in"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
@@ -8472,14 +8472,14 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
         }
       `}</style>
       {isLocked && currentUser && (
-        <div className="fixed inset-0 z-[100] bg-gradient-to-br from-black via-neutral-900 to-[#000000] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] bg-gradient-to-br from-amber-900 via-amber-800 to-[#451a03] flex items-center justify-center p-4">
           <div className="relative w-full max-w-sm bg-white rounded-3xl shadow-2xl shadow-black/30 overflow-hidden" style={{ animation: "pdmPopIn .3s cubic-bezier(0.16,1,0.3,1) both" }}>
-            <div className="relative bg-gradient-to-r from-neutral-900 to-black px-6 pt-8 pb-7 text-center">
+            <div className="relative bg-gradient-to-r from-amber-800 to-amber-900 px-6 pt-8 pb-7 text-center">
               <div className="mx-auto mb-3 w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
                 <Lock size={22} className="text-white" />
               </div>
               <h1 className="text-white font-semibold text-lg tracking-tight" style={{ fontFamily: "'Fraunces', serif" }}>Session locked</h1>
-              <p className="text-neutral-50/90 text-xs mt-1">Signed in as {currentUser.name} — enter your password to continue</p>
+              <p className="text-amber-50/90 text-xs mt-1">Signed in as {currentUser.name} — enter your password to continue</p>
             </div>
             <div className="relative bg-white px-6 pt-6 pb-6">
               {lockError && <div className="bg-red-50 text-red-700 text-sm rounded-2xl px-3 py-2 mb-3">{lockError}</div>}
@@ -8488,7 +8488,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <Lock size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
                 <input
                   type={showLockPassword ? "text" : "password"}
-                  className="w-full border border-stone-300 rounded-2xl pl-9 pr-9 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-neutral-900"
+                  className="w-full border border-stone-300 rounded-2xl pl-9 pr-9 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-800 focus:border-amber-800"
                   value={lockPasswordInput}
                   onChange={(e) => setLockPasswordInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleUnlock()}
@@ -8501,7 +8501,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 </button>
               </div>
               <button onClick={handleUnlock}
-                className="w-full mt-5 bg-gradient-to-r from-neutral-900 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-2xl px-4 py-2.5 flex items-center justify-center gap-2 shadow-lg shadow-neutral-900/30 transition-all">
+                className="w-full mt-5 bg-gradient-to-r from-amber-800 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-2xl px-4 py-2.5 flex items-center justify-center gap-2 shadow-lg shadow-amber-800/30 transition-all">
                 <Unlock size={15} /> Unlock
               </button>
               <button onClick={handleLogout}
@@ -8515,7 +8515,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
       <div className="xl:flex xl:justify-center xl:gap-4">
       <div className="relative max-w-5xl mx-auto xl:mx-0 xl:w-[64rem] xl:shrink-0 p-4 md:p-6">
         {/* Boarding-pass style banner */}
-        <div className="relative rounded-2xl bg-gradient-to-r from-neutral-900 via-neutral-900 to-black shadow-lg shadow-black/20 mb-0">
+        <div className="relative rounded-2xl bg-gradient-to-r from-amber-800 via-amber-800 to-amber-900 shadow-lg shadow-amber-900/20 mb-0">
           <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
             <Plane size={140} className="absolute -bottom-8 -right-6 text-white/[0.06] rotate-45" />
             <Compass size={90} className="absolute -top-6 left-[38%] text-white/[0.05]" />
@@ -8603,7 +8603,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                           onClick={() => { handleBackup(); setShowManagementMenu(false); }}
                           className="w-full flex items-center gap-2 px-2.5 py-2 rounded-xl text-sm text-stone-700 hover:bg-stone-100 transition-colors"
                         >
-                          <Download size={15} className="text-neutral-900" /> Backup
+                          <Download size={15} className="text-amber-800" /> Backup
                         </button>
                       )}
                       {hasAdminAccess && (
@@ -8611,7 +8611,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                           onClick={() => { triggerRestore(); setShowManagementMenu(false); }}
                           className="w-full flex items-center gap-2 px-2.5 py-2 rounded-xl text-sm text-stone-700 hover:bg-stone-100 transition-colors"
                         >
-                          <Upload size={15} className="text-neutral-900" /> Restore
+                          <Upload size={15} className="text-amber-800" /> Restore
                         </button>
                       )}
                       {hasAdminAccess && (
@@ -8619,7 +8619,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                           onClick={() => { setShowManage(!showManage); setShowManagementMenu(false); }}
                           className="w-full flex items-center gap-2 px-2.5 py-2 rounded-xl text-sm text-stone-700 hover:bg-stone-100 transition-colors"
                         >
-                          <Users size={15} className="text-neutral-900" /> Manage employees
+                          <Users size={15} className="text-amber-800" /> Manage employees
                         </button>
                       )}
                       {currentUser.isAdmin && (
@@ -8627,7 +8627,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                           onClick={() => { dispatchLicense({ showPanel: !showLicensePanel }); setShowManagementMenu(false); }}
                           className="w-full flex items-center gap-2 px-2.5 py-2 rounded-xl text-sm text-stone-700 hover:bg-stone-100 transition-colors"
                         >
-                          <Key size={15} className="text-neutral-900" /> {isLicensed ? "License" : "Activate license"}
+                          <Key size={15} className="text-amber-800" /> {isLicensed ? "License" : "Activate license"}
                         </button>
                       )}
                       {currentUser.isAdmin && (
@@ -8635,7 +8635,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                           onClick={() => { setShowLoginHistory(!showLoginHistory); setShowManagementMenu(false); }}
                           className="w-full flex items-center gap-2 px-2.5 py-2 rounded-xl text-sm text-stone-700 hover:bg-stone-100 transition-colors"
                         >
-                          <History size={15} className="text-neutral-900" /> Login history
+                          <History size={15} className="text-amber-800" /> Login history
                         </button>
                       )}
                       {currentUser.isAdmin && (
@@ -8643,7 +8643,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                           onClick={() => { setShowActivityLog(!showActivityLog); setShowManagementMenu(false); }}
                           className="w-full flex items-center gap-2 px-2.5 py-2 rounded-xl text-sm text-stone-700 hover:bg-stone-100 transition-colors"
                         >
-                          <ClipboardList size={15} className="text-neutral-900" /> Activity log
+                          <ClipboardList size={15} className="text-amber-800" /> Activity log
                         </button>
                       )}
                     </div>
@@ -8658,12 +8658,12 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               </div>
               <div>
                 <h1 className="text-base sm:text-lg md:text-2xl font-semibold text-white" style={{ fontFamily: "'Fraunces', serif" }}>
-                  Travel Agency Manager <span className="text-neutral-200/60 font-medium text-[10px] sm:text-xs md:text-base" style={{ fontFamily: "'Inter', sans-serif" }}>By Fady Habib</span>
+                  Travel Agency Manager <span className="text-amber-200/60 font-medium text-[10px] sm:text-xs md:text-base" style={{ fontFamily: "'Inter', sans-serif" }}>By Fady Habib</span>
                 </h1>
-                <p className="text-neutral-100/80 text-xs sm:text-sm flex items-center gap-1.5 flex-wrap mt-0.5">
+                <p className="text-amber-100/80 text-xs sm:text-sm flex items-center gap-1.5 flex-wrap mt-0.5">
                   Signed in as {currentUser.name}
                   {currentUser.isAdmin && (
-                    <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-black bg-amber-300 border border-amber-400/50 rounded-full px-2 py-0.5">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-amber-900 bg-amber-300 border border-amber-400/50 rounded-full px-2 py-0.5">
                       <ShieldCheck size={11} /> Main account
                     </span>
                   )}
@@ -8714,7 +8714,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     );
                   }}
                   title="Server"
-                  className="border border-white/20 bg-white/10 hover:bg-white/20 text-neutral-100 text-sm rounded-2xl p-1.5 sm:p-2 flex items-center justify-center transition-colors"
+                  className="border border-white/20 bg-white/10 hover:bg-white/20 text-amber-100 text-sm rounded-2xl p-1.5 sm:p-2 flex items-center justify-center transition-colors"
                 >
                   <Wifi size={15} />
                 </button>
@@ -8727,7 +8727,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
         <div className="relative h-6 mb-4">
           <div className="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-stone-50" />
           <div className="absolute -right-2.5 top-0 w-5 h-5 rounded-full bg-stone-50" />
-          <div className="absolute left-4 right-4 top-2.5 border-t-2 border-dashed border-neutral-900/20" />
+          <div className="absolute left-4 right-4 top-2.5 border-t-2 border-dashed border-amber-800/20" />
         </div>
 
         {showLicensePanel && currentUser.isAdmin && (
@@ -8742,7 +8742,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="bg-white rounded-2xl border border-stone-200 p-4 md:p-5 w-full max-w-sm my-8 md:my-0 max-h-[90vh] overflow-y-auto">
               <div className="flex items-center justify-between mb-1">
                 <h2 className="font-semibold text-stone-900 flex items-center gap-2">
-                  <Key size={16} className="text-neutral-900" /> App license
+                  <Key size={16} className="text-amber-800" /> App license
                 </h2>
                 <button
                   onClick={() => dispatchLicense({ showPanel: false, error: "", input: "" })}
@@ -8769,7 +8769,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Activation code</label>
                 <input
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 tracking-widest uppercase"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 tracking-widest uppercase"
                   value={licenseInput}
                   onChange={(e) => dispatchLicense({ input: e.target.value })}
                   onKeyDown={(e) => e.key === "Enter" && handleActivateLicense()}
@@ -8780,7 +8780,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <button
                 onClick={handleActivateLicense}
                 disabled={licenseSaving}
-                className="w-full mt-4 bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-neutral-900/30 ring-1 ring-inset ring-white/10 transition-colors disabled:opacity-60">
+                className="w-full mt-4 bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-amber-800/30 ring-1 ring-inset ring-white/10 transition-colors disabled:opacity-60">
                 {licenseSaving ? "Saving..." : "Activate"}
               </button>
             </div>
@@ -8817,7 +8817,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div className="bg-white rounded-2xl border border-stone-200 p-6 md:p-8 w-full max-w-4xl my-8 md:my-0 max-h-[90vh] overflow-y-auto">
                 <div className="flex items-center justify-between mb-1">
                   <h2 className="font-semibold text-stone-900 flex items-center gap-2 text-xl">
-                    <Lock size={20} className="text-neutral-900" /> Closed years
+                    <Lock size={20} className="text-amber-800" /> Closed years
                   </h2>
                   <button
                     onClick={() => setShowClosedYearsPanel(false)}
@@ -8925,7 +8925,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <select
                         value={closedYearPermEmployee}
                         onChange={(e) => { setClosedYearPermEmployee(e.target.value); setClosedYearPermYear(""); }}
-                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                       >
                         <option value="">Select an employee...</option>
                         {(employees || [])
@@ -8943,7 +8943,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         value={closedYearPermYear}
                         onChange={(e) => setClosedYearPermYear(e.target.value)}
                         disabled={!closedYearPermEmployee}
-                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 disabled:opacity-60 disabled:cursor-not-allowed"
+                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 disabled:opacity-60 disabled:cursor-not-allowed"
                       >
                         <option value="">Select a year...</option>
                         {allYears.map((y) => (
@@ -8995,7 +8995,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div className="bg-white rounded-2xl border border-stone-200 p-4 md:p-5 w-full max-w-lg my-8 md:my-0 max-h-[90vh] overflow-y-auto">
                 <div className="flex items-center justify-between mb-1">
                   <h2 className="font-semibold text-stone-900 flex items-center gap-2">
-                    <History size={16} className="text-neutral-900" /> Login History
+                    <History size={16} className="text-amber-800" /> Login History
                   </h2>
                   <button
                     onClick={() => setShowLoginHistory(false)}
@@ -9014,7 +9014,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     value={loginHistoryQuery}
                     onChange={(e) => setLoginHistoryQuery(e.target.value)}
                     placeholder="Search by name..."
-                    className="w-full border border-stone-200 rounded-xl pl-8 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="w-full border border-stone-200 rounded-xl pl-8 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   />
                 </div>
                 {filteredHistory.length === 0 ? (
@@ -9029,11 +9029,11 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         <div className="min-w-0">
                           <p className="text-sm font-semibold text-stone-900 flex items-center gap-1.5 flex-wrap">
                             {entry.type === "logout" ? "Logged out" : "Logged in"}
-                            <span className="text-[10px] font-semibold text-neutral-800 bg-neutral-50 border border-neutral-200 rounded-full px-1.5 py-0.5 shrink-0">
+                            <span className="text-[10px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-1.5 py-0.5 shrink-0">
                               Login/Logout
                             </span>
                             {entry.isAdmin && (
-                              <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-black bg-amber-300 border border-amber-400/50 rounded-full px-1.5 py-0.5 shrink-0">
+                              <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-amber-900 bg-amber-300 border border-amber-400/50 rounded-full px-1.5 py-0.5 shrink-0">
                                 <ShieldCheck size={10} /> Main
                               </span>
                             )}
@@ -9092,7 +9092,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div className="bg-white rounded-2xl border border-stone-200 p-4 md:p-5 w-full max-w-2xl my-8 md:my-0 max-h-[90vh] overflow-y-auto">
                 <div className="flex items-center justify-between mb-1">
                   <h2 className="font-semibold text-stone-900 flex items-center gap-2">
-                    <ClipboardList size={16} className="text-neutral-900" /> Activity Log
+                    <ClipboardList size={16} className="text-amber-800" /> Activity Log
                   </h2>
                   <button
                     onClick={() => setShowActivityLog(false)}
@@ -9111,7 +9111,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     value={activityLogQuery}
                     onChange={(e) => setActivityLogQuery(e.target.value)}
                     placeholder="Search by name or description..."
-                    className="w-full border border-stone-200 rounded-xl pl-8 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="w-full border border-stone-200 rounded-xl pl-8 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   />
                 </div>
                 <div className="flex flex-wrap gap-1.5 mb-4">
@@ -9121,7 +9121,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       onClick={() => setActivityLogFilter(m)}
                       className={`text-xs font-medium rounded-full px-2.5 py-1 border transition-colors ${
                         activityLogFilter === m
-                          ? "bg-neutral-900 border-neutral-900 text-white"
+                          ? "bg-amber-800 border-amber-800 text-white"
                           : "bg-white border-stone-200 text-stone-500 hover:bg-stone-50"
                       }`}
                     >
@@ -9141,7 +9141,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         <div className="min-w-0">
                           <p className="text-sm font-semibold text-stone-900 flex items-center gap-1.5 flex-wrap">
                             {entry.isLoginEvent ? entry.action : entry.description}
-                            <span className="text-[10px] font-semibold text-neutral-800 bg-neutral-50 border border-neutral-200 rounded-full px-1.5 py-0.5 shrink-0">
+                            <span className="text-[10px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-1.5 py-0.5 shrink-0">
                               {moduleBucket(entry.module)}
                             </span>
                           </p>
@@ -9217,14 +9217,14 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                           </td>
                           <td className="px-3 py-2">
                             <input
-                              className="w-full border border-stone-300 rounded-xl px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                              className="w-full border border-stone-300 rounded-xl px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                               value={editDraft.name}
                               onChange={(ev) => setEditDraft({ ...editDraft, name: ev.target.value })}
                             />
                           </td>
                           <td className="px-3 py-2">
                             <input
-                              className="w-full border border-stone-300 rounded-xl px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                              className="w-full border border-stone-300 rounded-xl px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                               value={editDraft.username}
                               onChange={(ev) => setEditDraft({ ...editDraft, username: ev.target.value })}
                             />
@@ -9233,7 +9233,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                             <div className="relative">
                               <input
                                 type={editShowPassword ? "text" : "password"}
-                                className="w-full border border-stone-300 rounded-xl pl-2 pr-8 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                                className="w-full border border-stone-300 rounded-xl pl-2 pr-8 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                                 value={editDraft.password}
                                 placeholder="Leave blank to keep current"
                                 onChange={(ev) => setEditDraft({ ...editDraft, password: ev.target.value })}
@@ -9249,7 +9249,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                           </td>
                           <td className="px-3 py-2 text-stone-500">
                             {e.isAdmin ? (
-                              <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-neutral-900 bg-neutral-50 border border-neutral-200 rounded-full px-2 py-0.5">
+                              <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-amber-800 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">
                                 <ShieldCheck size={11} /> Main
                               </span>
                             ) : (
@@ -9273,7 +9273,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     return (
                       <tr
                         key={e.username}
-                        className={`border-t border-stone-100 ${isDragOver ? "bg-neutral-50" : ""}`}
+                        className={`border-t border-stone-100 ${isDragOver ? "bg-amber-50" : ""}`}
                         onDragOver={(ev) => {
                           if (!draggedEmployeeUsername) return;
                           ev.preventDefault();
@@ -9317,7 +9317,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                               type="button"
                               onClick={() => setOpenPermissionsFor(e.username)}
                               title="View or change this employee's permissions"
-                              className="text-neutral-900 hover:text-black hover:underline font-medium text-left"
+                              className="text-amber-800 hover:text-amber-900 hover:underline font-medium text-left"
                             >
                               {e.name}
                             </button>
@@ -9329,7 +9329,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         </td>
                         <td className="px-3 py-2 text-stone-500 whitespace-nowrap">
                           {e.isAdmin ? (
-                            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-neutral-900 bg-neutral-50 border border-neutral-200 rounded-full px-2 py-0.5">
+                            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-amber-800 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">
                               <ShieldCheck size={11} /> Main
                             </span>
                           ) : (
@@ -9359,14 +9359,14 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                                 <button
                                   onClick={() => handlePromoteToAdmin(e.username)}
                                   title="Make this a main account"
-                                  className="text-stone-400 hover:text-neutral-900 text-[11px] font-semibold border border-stone-200 rounded-lg px-1.5 py-1 flex items-center gap-1"
+                                  className="text-stone-400 hover:text-amber-800 text-[11px] font-semibold border border-stone-200 rounded-lg px-1.5 py-1 flex items-center gap-1"
                                 >
                                   <ShieldCheck size={12} /> Make main
                                 </button>
                               )
                             )}
                             {e.isAdmin && currentUser.isAdmin && (
-                              <button onClick={() => startEditEmployee(e)} className="text-stone-400 hover:text-neutral-900 p-1">
+                              <button onClick={() => startEditEmployee(e)} className="text-stone-400 hover:text-amber-800 p-1">
                                 <Pencil size={15} />
                               </button>
                             )}
@@ -9382,13 +9382,13 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 password, the grade picker, and the Add button. */}
             <div className="border border-stone-200 rounded-2xl p-4 bg-stone-50">
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <input className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                <input className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                   placeholder="Full name" value={newEmployee.name} autoComplete="off"
                   onChange={(e) => setNewEmployee({ ...newEmployee, name: e.target.value })} />
-                <input className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                <input className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                   placeholder="Username" value={newEmployee.username} autoComplete="off" name="new-employee-username"
                   onChange={(e) => setNewEmployee({ ...newEmployee, username: e.target.value })} />
-                <input type="password" className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                <input type="password" className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                   placeholder="Password" value={newEmployee.password} autoComplete="new-password" name="new-employee-password"
                   onChange={(e) => setNewEmployee({ ...newEmployee, password: e.target.value })} />
               </div>
@@ -9421,11 +9421,11 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         <button
                           type="button"
                           onClick={() => setNewEmployeeGradeOpen(isOpen ? null : group.key)}
-                          className={`flex items-center justify-between gap-1.5 border rounded-xl px-2.5 py-2 text-xs bg-white hover:bg-stone-50 focus:outline-none focus:ring-2 focus:ring-neutral-800 whitespace-nowrap ${
-                            selectedInGroup ? "border-neutral-800" : "border-stone-300"
+                          className={`flex items-center justify-between gap-1.5 border rounded-xl px-2.5 py-2 text-xs bg-white hover:bg-stone-50 focus:outline-none focus:ring-2 focus:ring-amber-700 whitespace-nowrap ${
+                            selectedInGroup ? "border-amber-700" : "border-stone-300"
                           }`}
                         >
-                          <span className={`font-medium ${selectedInGroup ? "text-neutral-900" : "text-stone-700"}`}>
+                          <span className={`font-medium ${selectedInGroup ? "text-amber-800" : "text-stone-700"}`}>
                             {selectedInGroup ? selectedInGroup.label : group.title}
                           </span>
                           <ChevronDown size={13} className={`text-stone-400 shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`} />
@@ -9447,12 +9447,12 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                                 >
                                   <span
                                     className={`shrink-0 w-4 h-4 rounded-full border flex items-center justify-center ${
-                                      selected ? "border-neutral-800" : "border-stone-300"
+                                      selected ? "border-amber-700" : "border-stone-300"
                                     }`}
                                   >
-                                    {selected && <span className="w-2 h-2 rounded-full bg-neutral-800" />}
+                                    {selected && <span className="w-2 h-2 rounded-full bg-amber-700" />}
                                   </span>
-                                  <span className={selected ? "text-neutral-900 font-semibold" : "text-stone-600"}>{r.label}</span>
+                                  <span className={selected ? "text-amber-800 font-semibold" : "text-stone-600"}>{r.label}</span>
                                 </button>
                               );
                             })}
@@ -9479,7 +9479,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         }}
                         className={`shrink-0 flex items-center gap-1 border rounded-xl px-2.5 py-2 text-xs whitespace-nowrap transition-colors ${
                           selected
-                            ? "bg-neutral-900 text-white border-neutral-900"
+                            ? "bg-amber-800 text-white border-amber-800"
                             : "bg-white text-stone-600 border-stone-300 hover:bg-stone-50"
                         }`}
                       >
@@ -9502,7 +9502,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               </div>
 
               <button onClick={handleAddEmployee}
-                className="mt-3 bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-neutral-900/30 ring-1 ring-inset ring-white/10 transition-colors flex items-center gap-1.5">
+                className="mt-3 bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-amber-800/30 ring-1 ring-inset ring-white/10 transition-colors flex items-center gap-1.5">
                 <UserPlus size={15} /> Add employee
               </button>
             </div>
@@ -9526,25 +9526,25 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mb-3">
               <input
-                className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 placeholder="Company name"
                 value={newCompanyDraft.name}
                 onChange={(e) => setNewCompanyDraft({ ...newCompanyDraft, name: e.target.value })}
               />
               <input
-                className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 placeholder="Tax number"
                 value={newCompanyDraft.taxNumber}
                 onChange={(e) => setNewCompanyDraft({ ...newCompanyDraft, taxNumber: e.target.value })}
               />
               <input
-                className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 placeholder="Commercial registration number"
                 value={newCompanyDraft.commercialReg}
                 onChange={(e) => setNewCompanyDraft({ ...newCompanyDraft, commercialReg: e.target.value })}
               />
               <input
-                className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 placeholder="Phone numbers (comma separated)"
                 value={newCompanyDraft.phones}
                 onChange={(e) => setNewCompanyDraft({ ...newCompanyDraft, phones: e.target.value })}
@@ -9553,7 +9553,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="flex gap-2 mb-5">
               <button
                 onClick={handleAddCompany}
-                className="bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-neutral-900/30 ring-1 ring-inset ring-white/10 transition-colors flex items-center gap-1.5 whitespace-nowrap"
+                className="bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-amber-800/30 ring-1 ring-inset ring-white/10 transition-colors flex items-center gap-1.5 whitespace-nowrap"
               >
                 {editingCompanyName ? <Check size={15} /> : <Factory size={15} />}
                 {editingCompanyName ? "Save changes" : "Add company"}
@@ -9574,7 +9574,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               </p>
               <button
                 onClick={() => setShowCompaniesList(!showCompaniesList)}
-                className="text-neutral-900 border border-neutral-900 hover:bg-neutral-50 text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
+                className="text-amber-800 border border-amber-800 hover:bg-amber-50 text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
               >
                 <List size={14} /> {showCompaniesList ? "Hide companies list" : "View all companies"}
               </button>
@@ -9607,7 +9607,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                             return (
                               <tr
                                 key={name}
-                                className={`border-t border-stone-100 ${editingCompanyName === name ? "bg-neutral-50/40" : "hover:bg-stone-50"}`}
+                                className={`border-t border-stone-100 ${editingCompanyName === name ? "bg-amber-50/40" : "hover:bg-stone-50"}`}
                               >
                                 <td className="px-3 py-2 font-medium text-stone-800 whitespace-nowrap">{name}</td>
                                 <td className="px-3 py-2 text-stone-600 whitespace-nowrap">{taxNumber || "-"}</td>
@@ -9615,7 +9615,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                                 <td className="px-3 py-2 text-stone-600 whitespace-nowrap">{phones.length > 0 ? phones.join(", ") : "-"}</td>
                                 <td className="px-3 py-2 text-right whitespace-nowrap">
                                   <div className="flex gap-1 justify-end">
-                                    <button onClick={() => handleEditCompanyClick(c)} className="text-stone-400 hover:text-neutral-900 p-0.5">
+                                    <button onClick={() => handleEditCompanyClick(c)} className="text-stone-400 hover:text-amber-800 p-0.5">
                                       <Pencil size={13} />
                                     </button>
                                     <button onClick={() => handleDeleteCompany(name)} className="text-stone-400 hover:text-red-600 p-0.5">
@@ -9662,8 +9662,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   onClick={() => setSupplierManageTab(t.key)}
                   className={`text-xs font-semibold rounded-xl px-3 py-2 border transition-colors ${
                     supplierManageTab === t.key
-                      ? "bg-gradient-to-b from-neutral-800 to-black text-white border-transparent"
-                      : "text-neutral-900 border-neutral-800 hover:bg-neutral-50"
+                      ? "bg-gradient-to-b from-amber-700 to-amber-900 text-white border-transparent"
+                      : "text-amber-800 border-amber-700 hover:bg-amber-50"
                   }`}
                 >
                   {t.label}
@@ -9675,7 +9675,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <div className="flex gap-2 mb-3">
                   <input
-                    className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                     value={newFlightSupplierDraft}
                     onChange={(e) => setNewFlightSupplierDraft(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleAddFlightSupplierName()}
@@ -9683,7 +9683,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   />
                   <button
                     onClick={handleAddFlightSupplierName}
-                    className="bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
+                    className="bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
                   >
                     Add
                   </button>
@@ -9694,7 +9694,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   </p>
                   <button
                     onClick={() => setShowFlightSuppliersList(!showFlightSuppliersList)}
-                    className="text-neutral-900 border border-neutral-900 hover:bg-neutral-50 text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
+                    className="text-amber-800 border border-amber-800 hover:bg-amber-50 text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
                   >
                     <List size={14} /> {showFlightSuppliersList ? "Hide suppliers list" : "View all suppliers"}
                   </button>
@@ -9736,7 +9736,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <div className="flex gap-2 mb-3">
                   <input
-                    className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                     value={newSupplierDraft}
                     onChange={(e) => setNewSupplierDraft(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleAddSupplierName()}
@@ -9744,7 +9744,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   />
                   <button
                     onClick={handleAddSupplierName}
-                    className="bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
+                    className="bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
                   >
                     Add
                   </button>
@@ -9755,7 +9755,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   </p>
                   <button
                     onClick={() => setShowHotelSuppliersList(!showHotelSuppliersList)}
-                    className="text-neutral-900 border border-neutral-900 hover:bg-neutral-50 text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
+                    className="text-amber-800 border border-amber-800 hover:bg-amber-50 text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
                   >
                     <List size={14} /> {showHotelSuppliersList ? "Hide suppliers list" : "View all suppliers"}
                   </button>
@@ -9797,7 +9797,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <div className="flex gap-2 mb-3">
                   <input
-                    className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                     value={newVisaSupplierDraft}
                     onChange={(e) => setNewVisaSupplierDraft(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleAddVisaSupplierName()}
@@ -9805,7 +9805,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   />
                   <button
                     onClick={handleAddVisaSupplierName}
-                    className="bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
+                    className="bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
                   >
                     Add
                   </button>
@@ -9816,7 +9816,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   </p>
                   <button
                     onClick={() => setShowVisaSuppliersList(!showVisaSuppliersList)}
-                    className="text-neutral-900 border border-neutral-900 hover:bg-neutral-50 text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
+                    className="text-amber-800 border border-amber-800 hover:bg-amber-50 text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
                   >
                     <List size={14} /> {showVisaSuppliersList ? "Hide suppliers list" : "View all suppliers"}
                   </button>
@@ -9858,7 +9858,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <div className="flex gap-2 mb-3">
                   <input
-                    className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                     value={newCarSupplierDraft}
                     onChange={(e) => setNewCarSupplierDraft(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleAddCarSupplierName()}
@@ -9866,7 +9866,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   />
                   <button
                     onClick={handleAddCarSupplierName}
-                    className="bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
+                    className="bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
                   >
                     Add
                   </button>
@@ -9877,7 +9877,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   </p>
                   <button
                     onClick={() => setShowCarSuppliersList(!showCarSuppliersList)}
-                    className="text-neutral-900 border border-neutral-900 hover:bg-neutral-50 text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
+                    className="text-amber-800 border border-amber-800 hover:bg-amber-50 text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
                   >
                     <List size={14} /> {showCarSuppliersList ? "Hide suppliers list" : "View all suppliers"}
                   </button>
@@ -9935,8 +9935,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               !mySections.flights
                 ? "bg-stone-50 text-stone-300 border-stone-100 cursor-not-allowed"
                 : activeSection === "flights"
-                ? "bg-gradient-to-b from-neutral-800 to-black text-white border-neutral-900 shadow-md shadow-neutral-900/30 ring-1 ring-inset ring-amber-600/50"
-                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-neutral-900 hover:shadow-sm"
+                ? "bg-gradient-to-b from-amber-700 to-amber-900 text-white border-amber-800 shadow-md shadow-amber-800/30 ring-1 ring-inset ring-amber-600/50"
+                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-amber-800 hover:shadow-sm"
             }`}
           >
             {!mySections.flights && <Lock size={11} className="absolute top-1.5 right-1.5 text-stone-300" />}
@@ -9951,8 +9951,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               !mySections.hotels
                 ? "bg-stone-50 text-stone-300 border-stone-100 cursor-not-allowed"
                 : activeSection === "hotels"
-                ? "bg-gradient-to-b from-neutral-800 to-black text-white border-neutral-900 shadow-md shadow-neutral-900/30 ring-1 ring-inset ring-amber-600/50"
-                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-neutral-900 hover:shadow-sm"
+                ? "bg-gradient-to-b from-amber-700 to-amber-900 text-white border-amber-800 shadow-md shadow-amber-800/30 ring-1 ring-inset ring-amber-600/50"
+                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-amber-800 hover:shadow-sm"
             }`}
           >
             {!mySections.hotels && <Lock size={11} className="absolute top-1.5 right-1.5 text-stone-300" />}
@@ -9967,8 +9967,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               !mySections.visa
                 ? "bg-stone-50 text-stone-300 border-stone-100 cursor-not-allowed"
                 : activeSection === "visa"
-                ? "bg-gradient-to-b from-neutral-800 to-black text-white border-neutral-900 shadow-md shadow-neutral-900/30 ring-1 ring-inset ring-amber-600/50"
-                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-neutral-900 hover:shadow-sm"
+                ? "bg-gradient-to-b from-amber-700 to-amber-900 text-white border-amber-800 shadow-md shadow-amber-800/30 ring-1 ring-inset ring-amber-600/50"
+                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-amber-800 hover:shadow-sm"
             }`}
           >
             {!mySections.visa && <Lock size={11} className="absolute top-1.5 right-1.5 text-stone-300" />}
@@ -9983,8 +9983,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               !mySections.cars
                 ? "bg-stone-50 text-stone-300 border-stone-100 cursor-not-allowed"
                 : activeSection === "cars"
-                ? "bg-gradient-to-b from-neutral-800 to-black text-white border-neutral-900 shadow-md shadow-neutral-900/30 ring-1 ring-inset ring-amber-600/50"
-                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-neutral-900 hover:shadow-sm"
+                ? "bg-gradient-to-b from-amber-700 to-amber-900 text-white border-amber-800 shadow-md shadow-amber-800/30 ring-1 ring-inset ring-amber-600/50"
+                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-amber-800 hover:shadow-sm"
             }`}
           >
             {!mySections.cars && <Lock size={11} className="absolute top-1.5 right-1.5 text-stone-300" />}
@@ -9999,8 +9999,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               !mySections.files
                 ? "bg-stone-50 text-stone-300 border-stone-100 cursor-not-allowed"
                 : activeSection === "files"
-                ? "bg-gradient-to-b from-neutral-800 to-black text-white border-neutral-900 shadow-md shadow-neutral-900/30 ring-1 ring-inset ring-amber-600/50"
-                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-neutral-900 hover:shadow-sm"
+                ? "bg-gradient-to-b from-amber-700 to-amber-900 text-white border-amber-800 shadow-md shadow-amber-800/30 ring-1 ring-inset ring-amber-600/50"
+                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-amber-800 hover:shadow-sm"
             }`}
           >
             {!mySections.files && <Lock size={11} className="absolute top-1.5 right-1.5 text-stone-300" />}
@@ -10011,8 +10011,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             onClick={() => navigateToSection("activities")}
             className={`shrink-0 flex flex-col items-center gap-1.5 px-4 md:px-6 py-2.5 md:py-3 rounded-2xl border text-xs font-semibold transition-colors ${
               activeSection === "activities"
-                ? "bg-gradient-to-b from-neutral-800 to-black text-white border-neutral-900 shadow-md shadow-neutral-900/30 ring-1 ring-inset ring-amber-600/50"
-                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-neutral-900 hover:shadow-sm"
+                ? "bg-gradient-to-b from-amber-700 to-amber-900 text-white border-amber-800 shadow-md shadow-amber-800/30 ring-1 ring-inset ring-amber-600/50"
+                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-amber-800 hover:shadow-sm"
             }`}
           >
             <Compass size={22} />
@@ -10023,8 +10023,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             onClick={() => navigateToSection("accounts")}
             className={`shrink-0 flex flex-col items-center gap-1.5 px-4 md:px-6 py-2.5 md:py-3 rounded-2xl border text-xs font-semibold transition-colors ${
               activeSection === "accounts"
-                ? "bg-gradient-to-b from-neutral-800 to-black text-white border-neutral-900 shadow-md shadow-neutral-900/30 ring-1 ring-inset ring-amber-600/50"
-                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-neutral-900 hover:shadow-sm"
+                ? "bg-gradient-to-b from-amber-700 to-amber-900 text-white border-amber-800 shadow-md shadow-amber-800/30 ring-1 ring-inset ring-amber-600/50"
+                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-amber-800 hover:shadow-sm"
             }`}
           >
             <Wallet size={22} />
@@ -10036,8 +10036,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             onClick={() => navigateToSection("analysis")}
             className={`shrink-0 flex flex-col items-center gap-1.5 px-4 md:px-6 py-2.5 md:py-3 rounded-2xl border text-xs font-semibold transition-colors ${
               activeSection === "analysis"
-                ? "bg-gradient-to-b from-neutral-800 to-black text-white border-neutral-900 shadow-md shadow-neutral-900/30 ring-1 ring-inset ring-amber-600/50"
-                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-neutral-900 hover:shadow-sm"
+                ? "bg-gradient-to-b from-amber-700 to-amber-900 text-white border-amber-800 shadow-md shadow-amber-800/30 ring-1 ring-inset ring-amber-600/50"
+                : "bg-white text-stone-500 border-stone-200 hover:border-amber-600 hover:text-amber-800 hover:shadow-sm"
             }`}
           >
             <BarChart3 size={22} />
@@ -10055,7 +10055,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           <input
             type="number"
             step="0.01"
-            className="w-28 border border-stone-300 rounded-lg px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+            className="w-28 border border-stone-300 rounded-lg px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
             value={usdToEgpRate ?? ""}
             onChange={(e) => setUsdToEgpRate(e.target.value === "" ? null : parseFloat(e.target.value))}
             onBlur={() => {
@@ -10065,7 +10065,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           />
           <button
             onClick={() => usdToEgpRate !== null && !Number.isNaN(usdToEgpRate) && persistUsdRate(usdToEgpRate)}
-            className="text-xs font-semibold text-neutral-900 border border-neutral-800 rounded-lg px-3 py-1.5 hover:bg-neutral-50"
+            className="text-xs font-semibold text-amber-800 border border-amber-700 rounded-lg px-3 py-1.5 hover:bg-amber-50"
           >
             Save rate
           </button>
@@ -10083,7 +10083,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             href="https://www.nbe.com.eg/NBE/E/#/AR/ExchangeRatesAndCurrencyConverter"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-semibold text-neutral-900 border border-neutral-800 rounded-lg px-3 py-1.5 hover:bg-neutral-50"
+            className="text-xs font-semibold text-amber-800 border border-amber-700 rounded-lg px-3 py-1.5 hover:bg-amber-50"
           >
             Check NBE rate ↗
           </a>
@@ -10155,7 +10155,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   </div>
                 </div>
                 <div className="bg-white rounded-2xl border border-stone-200 p-2.5 sm:p-4 flex items-center gap-2 sm:gap-3 shrink-0 snap-start basis-[42%] sm:basis-0 sm:flex-1">
-                  <div className="bg-neutral-50 rounded-xl p-1.5 sm:p-2 text-black shrink-0"><Wallet size={18} className="sm:hidden" /><Wallet size={20} className="hidden sm:block" /></div>
+                  <div className="bg-amber-50 rounded-xl p-1.5 sm:p-2 text-amber-900 shrink-0"><Wallet size={18} className="sm:hidden" /><Wallet size={20} className="hidden sm:block" /></div>
                   <div className="min-w-0">
                     <p className="text-xs text-stone-500 whitespace-nowrap">Total sales (EGP)</p>
                     <p className="text-sm sm:text-lg font-bold whitespace-nowrap">{fmt(shown.total)}</p>
@@ -10185,7 +10185,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
         <div className="flex flex-wrap items-center gap-2 mb-4">
           <button
             onClick={() => setShowFlightLookup(!showFlightLookup)}
-            className="text-xs font-semibold text-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 hover:bg-neutral-50 flex items-center gap-1.5"
+            className="text-xs font-semibold text-amber-800 border border-amber-700 rounded-xl px-3 py-2 hover:bg-amber-50 flex items-center gap-1.5"
           >
             <Plane size={14} className="rotate-45" /> Check flight status
           </button>
@@ -10199,7 +10199,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="bg-white rounded-2xl border border-stone-200 p-4 md:p-5 w-full max-w-md my-8 md:my-0 max-h-[90vh] overflow-y-auto">
               <div className="flex items-center justify-between mb-1">
                 <h2 className="font-semibold text-stone-900 flex items-center gap-2">
-                  <Plane size={16} className="text-neutral-900 rotate-45" /> Flight status checker
+                  <Plane size={16} className="text-amber-800 rotate-45" /> Flight status checker
                 </h2>
                 <button
                   onClick={() => setShowFlightLookup(false)}
@@ -10219,7 +10219,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <input
-                      className="flex-1 min-w-[200px] border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                      className="flex-1 min-w-[200px] border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                       value={flightApiKeyDraft}
                       onChange={(e) => setFlightApiKeyDraft(e.target.value)}
                       placeholder="Paste your AviationStack API key"
@@ -10227,7 +10227,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     />
                     <button
                       onClick={handleSaveFlightApiKey}
-                      className="bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
+                      className="bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
                     >
                       Save key
                     </button>
@@ -10239,7 +10239,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     <div>
                       <label className="block text-xs text-stone-500 mb-1">Flight number</label>
                       <input
-                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm uppercase focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm uppercase focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={flightLookupNumber}
                         onChange={(e) => setFlightLookupNumber(e.target.value)}
                         placeholder="e.g. MS985"
@@ -10249,7 +10249,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <button
                         onClick={() => lookupFlight(flightLookupNumber)}
                         disabled={flightLookupLoading}
-                        className="flex-1 bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2.5 hover:brightness-110 disabled:opacity-60"
+                        className="flex-1 bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2.5 hover:brightness-110 disabled:opacity-60"
                       >
                         {flightLookupLoading ? "Checking..." : "Check status"}
                       </button>
@@ -10390,7 +10390,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div>
                   <label className="text-xs text-stone-500 block mb-1">Old ticket number</label>
                   <input
-                    className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                     value={form.oldTicketNumber}
                     onChange={(e) => handleOldTicketNumberChange(e.target.value)}
                     onBlur={handleOldTicketNumberBlur}
@@ -10423,7 +10423,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                             Ticket number to refund {refundRows.length > 1 ? `#${index + 1}` : ""}
                           </label>
                           <input
-                            className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                            className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                             value={row.number}
                             onChange={(e) => handleRefundRowNumberChange(index, e.target.value)}
                             onBlur={() => handleRefundRowNumberBlur(index)}
@@ -10459,7 +10459,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                             <div className="mb-3">
                               <label className="text-xs text-stone-500 block mb-1">Refunded ticket</label>
                               <select
-                                className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                                className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                                 value={row.customerIndex}
                                 onChange={(e) => {
                                   const newIndex = Number(e.target.value);
@@ -10491,7 +10491,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                               <label className="text-xs text-stone-500 block mb-1">Refunded by airline</label>
                               <input
                                 type="number"
-                                className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                                className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                                 value={row.airlineAmount}
                                 onChange={(e) =>
                                   setRefundRows(refundRows.map((r, i) => (i === index ? { ...r, airlineAmount: e.target.value } : r)))
@@ -10506,7 +10506,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                               <label className="text-xs text-stone-500 block mb-1">Refunded to customer</label>
                               <input
                                 type="number"
-                                className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                                className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                                 value={row.customerAmount}
                                 onChange={(e) =>
                                   setRefundRows(refundRows.map((r, i) => (i === index ? { ...r, customerAmount: e.target.value } : r)))
@@ -10537,7 +10537,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={saveAllRefunds}
-                    className="bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-xl px-4 py-2 flex items-center gap-1.5 shadow-sm shadow-neutral-900/30 ring-1 ring-inset ring-white/10"
+                    className="bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-xl px-4 py-2 flex items-center gap-1.5 shadow-sm shadow-amber-800/30 ring-1 ring-inset ring-white/10"
                   >
                     <Check size={15} /> Save refund{refundRows.length > 1 ? "s" : ""}
                   </button>
@@ -10554,7 +10554,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="flex-1 min-w-[160px]">
               <label className="text-xs text-stone-500 block mb-1">Corporates (optional)</label>
               <select
-                className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                 value={form.company}
                 onChange={(e) => setForm({ ...form, company: e.target.value })}
               >
@@ -10581,7 +10581,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               {supplierOther ? (
                 <div className="flex gap-2">
                   <input
-                    className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 ${form.supplier.trim() ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300"}`}
+                    className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 ${form.supplier.trim() ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300"}`}
                     value={form.supplier}
                     onChange={(e) => setForm({ ...form, supplier: e.target.value })}
                     placeholder="Enter supplier name"
@@ -10590,14 +10590,14 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   <button
                     type="button"
                     onClick={() => { setSupplierOther(false); setForm({ ...form, supplier: "" }); }}
-                    className="shrink-0 text-xs text-stone-500 hover:text-neutral-900 border border-stone-300 rounded-xl px-2"
+                    className="shrink-0 text-xs text-stone-500 hover:text-amber-800 border border-stone-300 rounded-xl px-2"
                   >
                     List
                   </button>
                 </div>
               ) : (
                 <select
-                  className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 ${form.supplier ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300 bg-white"}`}
+                  className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 ${form.supplier ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300 bg-white"}`}
                   value={form.supplier}
                   onChange={(e) => {
                     if (e.target.value === "__other__") {
@@ -10622,7 +10622,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 type="number"
                 min={1}
                 max={50}
-                className="w-14 border border-stone-300 rounded-xl px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="w-14 border border-stone-300 rounded-xl px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 value={form.customersCount}
                 onChange={(e) => handleCustomersCountChange(e.target.value)}
                 onBlur={(e) => {
@@ -10648,13 +10648,13 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               {form.customers.map((c, i) => (
                 <div key={i} className="flex flex-col md:flex-row gap-2 md:gap-3 md:items-start">
                   <input
-                    className="w-full md:flex-1 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="w-full md:flex-1 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                     value={c.name}
                     onChange={(e) => handleCustomerFieldChange(i, "name", e.target.value)}
                     placeholder={`Customer ${i + 1} name`}
                   />
                   <select
-                    className={`w-full md:w-[9ch] md:shrink-0 border rounded-xl px-2 py-2 text-sm outline-none focus:ring-2 focus:ring-neutral-800 bg-white ${
+                    className={`w-full md:w-[9ch] md:shrink-0 border rounded-xl px-2 py-2 text-sm outline-none focus:ring-2 focus:ring-amber-700 bg-white ${
                       c.type === "child" || c.type === "infant" ? "border-blue-400 text-blue-700 font-medium" : "border-stone-300"
                     }`}
                     value={c.type || "adult"}
@@ -10677,7 +10677,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     />
                     Conjunction
                   </label>
-                  <div className="w-full md:w-[24ch] md:shrink-0 flex items-center border border-stone-300 rounded-xl px-3 py-2 focus-within:ring-2 focus-within:ring-neutral-800">
+                  <div className="w-full md:w-[24ch] md:shrink-0 flex items-center border border-stone-300 rounded-xl px-3 py-2 focus-within:ring-2 focus-within:ring-amber-700">
                     <input
                       className="min-w-0 text-sm outline-none bg-transparent flex-1"
                       style={c.conjunction && (c.ticketNumber || "").length > 0 ? { flex: "0 0 auto", width: `${Math.max((c.ticketNumber || "").length - ((c.ticketNumber || "").match(/-/g) || []).length * 0.5, 3)}ch` } : { width: "20ch" }}
@@ -10700,7 +10700,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     )}
                   </div>
                   <input
-                    className="w-full md:w-[13ch] md:shrink-0 border border-stone-300 rounded-xl px-3 py-2 text-sm font-mono uppercase outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="w-full md:w-[13ch] md:shrink-0 border border-stone-300 rounded-xl px-3 py-2 text-sm font-mono uppercase outline-none focus:ring-2 focus:ring-amber-700"
                     value={c.pnrReference || ""}
                     onChange={(e) => handleCustomerFieldChange(i, "pnrReference", e.target.value)}
                     onBlur={() => handlePnrReferenceBlur(i)}
@@ -10719,7 +10719,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <input
                   type="radio"
                   name="routeMode"
-                  className="w-4 h-4 accent-neutral-900"
+                  className="w-4 h-4 accent-amber-800"
                   checked={!form.multiDestination && (form.tripType || "oneWay") === "oneWay"}
                   onChange={() => setForm({ ...form, tripType: "oneWay", multiDestination: false })}
                 />
@@ -10729,7 +10729,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <input
                   type="radio"
                   name="routeMode"
-                  className="w-4 h-4 accent-neutral-900"
+                  className="w-4 h-4 accent-amber-800"
                   checked={!form.multiDestination && form.tripType === "roundTrip"}
                   onChange={() => setForm({ ...form, tripType: "roundTrip", multiDestination: false })}
                 />
@@ -10739,7 +10739,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <input
                   type="radio"
                   name="routeMode"
-                  className="w-4 h-4 accent-neutral-900"
+                  className="w-4 h-4 accent-amber-800"
                   checked={!!form.multiDestination}
                   onChange={() => {
                     setForm({
@@ -10769,7 +10769,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         {i === 0 ? "From" : i === form.destinations.length - 1 ? "Final" : `Stop ${i}`}
                       </label>
                       <input
-                        className="w-16 border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-neutral-800 uppercase"
+                        className="w-16 border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-amber-700 uppercase"
                         value={d}
                         onChange={(e) => handleDestinationChange(i, e.target.value)}
                         placeholder={i === 0 ? "CAI" : "DXB"}
@@ -10791,7 +10791,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <button
                   type="button"
                   onClick={addDestinationStop}
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-neutral-800 hover:text-black mb-1.5"
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-amber-700 hover:text-amber-900 mb-1.5"
                 >
                   <Plus size={14} /> Add stop
                 </button>
@@ -10801,7 +10801,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div>
                   <label className="text-xs text-stone-500 block mb-1">From</label>
                   <input
-                    className="w-16 border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-neutral-800 uppercase"
+                    className="w-16 border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-amber-700 uppercase"
                     value={form.from}
                     onChange={(e) => handleCityChange("from", e.target.value)}
                     placeholder="CAI"
@@ -10811,7 +10811,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div>
                   <label className="text-xs text-stone-500 block mb-1">To</label>
                   <input
-                    className="w-16 border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-neutral-800 uppercase"
+                    className="w-16 border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-amber-700 uppercase"
                     value={form.to}
                     onChange={(e) => handleCityChange("to", e.target.value)}
                     placeholder="DXB"
@@ -10835,13 +10835,13 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <label className="text-xs text-stone-500 mb-1 flex items-center gap-1.5">
                 <span>Airline</span>
                 {getAirlineNameByIata(form.airline) && (
-                  <span className="bg-neutral-50 text-neutral-800 border border-neutral-200 rounded px-1.5 py-0.5 text-[10px] font-semibold">
+                  <span className="bg-amber-50 text-amber-700 border border-amber-200 rounded px-1.5 py-0.5 text-[10px] font-semibold">
                     {getAirlineNameByIata(form.airline)}
                   </span>
                 )}
               </label>
               <input
-                className="w-16 border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="w-16 border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-amber-700"
                 value={form.airline}
                 onChange={(e) => handleAirlineChange(e.target.value)}
                 placeholder="MS"
@@ -10859,7 +10859,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               </label>
               <div className="flex items-center gap-1">
                 <input
-                  className="w-20 border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-neutral-800 uppercase"
+                  className="w-20 border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-amber-700 uppercase"
                   value={form.flightNumber}
                   onChange={(e) => setForm({ ...form, flightNumber: e.target.value })}
                   placeholder="MS985"
@@ -10889,7 +10889,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               type="date"
               lang="en-GB"
               max={todayDateStr()}
-              className="block w-full max-w-full min-w-0 box-border border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+              className="block w-full max-w-full min-w-0 box-border border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
               style={{ WebkitAppearance: "none" }}
               value={form.date}
               onChange={(e) => {
@@ -10902,7 +10902,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div>
               <label className="text-xs text-stone-500 block mb-1">Net currency</label>
               <select
-                className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                 value={form.netCurrency}
                 onChange={(e) => setForm({ ...form, netCurrency: e.target.value })}
               >
@@ -10916,7 +10916,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div className="relative">
                 <input
                   type="number"
-                  className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                  className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                   value={form.netPrice}
                   onChange={(e) => setForm({ ...form, netPrice: e.target.value })}
                   onBlur={(e) => setForm({ ...form, netPrice: addCentsOnBlur(e.target.value) })}
@@ -10934,7 +10934,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div>
               <label className="text-xs text-stone-500 block mb-1">Sold currency</label>
               <select
-                className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                 value={form.soldCurrency}
                 onChange={(e) => setForm({ ...form, soldCurrency: e.target.value })}
               >
@@ -10948,7 +10948,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div className="relative">
                 <input
                   type="number"
-                  className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                  className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                   value={form.soldPrice}
                   onChange={(e) => setForm({ ...form, soldPrice: e.target.value })}
                   onBlur={(e) => setForm({ ...form, soldPrice: addCentsOnBlur(e.target.value) })}
@@ -10977,7 +10977,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               type="date"
               lang="en-GB"
               max={todayDateStr()}
-              className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+              className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
               value={form.date}
               onChange={(e) => {
                 const v = e.target.value;
@@ -10989,7 +10989,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div>
               <label className="text-xs text-stone-500 block mb-1">Net currency</label>
               <select
-                className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                 value={form.netCurrency}
                 onChange={(e) => setForm({ ...form, netCurrency: e.target.value })}
               >
@@ -11003,7 +11003,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div className="relative">
                 <input
                   type="number"
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                   value={form.netPrice}
                   onChange={(e) => setForm({ ...form, netPrice: e.target.value })}
                   onBlur={(e) => setForm({ ...form, netPrice: addCentsOnBlur(e.target.value) })}
@@ -11019,7 +11019,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div>
               <label className="text-xs text-stone-500 block mb-1">Sold currency</label>
               <select
-                className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                 value={form.soldCurrency}
                 onChange={(e) => setForm({ ...form, soldCurrency: e.target.value })}
               >
@@ -11033,7 +11033,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div className="relative">
                 <input
                   type="number"
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                   value={form.soldPrice}
                   onChange={(e) => setForm({ ...form, soldPrice: e.target.value })}
                   onBlur={(e) => setForm({ ...form, soldPrice: addCentsOnBlur(e.target.value) })}
@@ -11075,7 +11075,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         <label className="text-xs text-stone-500 block mb-1">Child net price (each)</label>
                         <input
                           type="number"
-                          className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input bg-white"
+                          className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input bg-white"
                           value={form.childNetPrice}
                           onChange={(e) => setForm({ ...form, childNetPrice: e.target.value })}
                           onBlur={(e) => setForm({ ...form, childNetPrice: addCentsOnBlur(e.target.value) })}
@@ -11086,7 +11086,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         <label className="text-xs text-stone-500 block mb-1">Child sold price (each)</label>
                         <input
                           type="number"
-                          className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input bg-white"
+                          className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input bg-white"
                           value={form.childSoldPrice}
                           onChange={(e) => setForm({ ...form, childSoldPrice: e.target.value })}
                           onBlur={(e) => setForm({ ...form, childSoldPrice: addCentsOnBlur(e.target.value) })}
@@ -11101,7 +11101,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         <label className="text-xs text-stone-500 block mb-1">Infant net price (each)</label>
                         <input
                           type="number"
-                          className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input bg-white"
+                          className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input bg-white"
                           value={form.infantNetPrice}
                           onChange={(e) => setForm({ ...form, infantNetPrice: e.target.value })}
                           onBlur={(e) => setForm({ ...form, infantNetPrice: addCentsOnBlur(e.target.value) })}
@@ -11112,7 +11112,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         <label className="text-xs text-stone-500 block mb-1">Infant sold price (each)</label>
                         <input
                           type="number"
-                          className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input bg-white"
+                          className="w-full border border-stone-300 rounded-xl px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input bg-white"
                           value={form.infantSoldPrice}
                           onChange={(e) => setForm({ ...form, infantSoldPrice: e.target.value })}
                           onBlur={(e) => setForm({ ...form, infantSoldPrice: addCentsOnBlur(e.target.value) })}
@@ -11133,7 +11133,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           <div className="mt-3">
             <label className="text-xs text-stone-500 block mb-1">Notes</label>
             <textarea
-              className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 min-h-[80px]"
+              className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 min-h-[80px]"
               value={form.notes}
               onChange={(e) => setForm({ ...form, notes: e.target.value.toUpperCase() })}
               placeholder="Optional"
@@ -11143,7 +11143,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           <div className="flex gap-2 mt-4">
             <button
               onClick={handleSubmit}
-              className="bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-neutral-900/30 ring-1 ring-inset ring-white/10 transition-colors flex items-center gap-1.5"
+              className="bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-amber-800/30 ring-1 ring-inset ring-white/10 transition-colors flex items-center gap-1.5"
             >
               <Check size={16} /> {form.id ? "Save changes" : "Add ticket"}
             </button>
@@ -11176,7 +11176,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <Wallet size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none" />
               <input
                 type="number"
-                className={`price-input w-40 border rounded-xl pl-9 pr-3 py-2 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-neutral-800 ${
+                className={`price-input w-40 border rounded-xl pl-9 pr-3 py-2 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-amber-700 ${
                   iataBalance !== null && iataBalance < 0
                     ? "border-red-300 text-red-600 bg-red-50"
                     : "border-stone-300 text-stone-800"
@@ -11194,7 +11194,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <Ticket size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none" />
               <input
                 type="number"
-                className="price-input w-40 border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="price-input w-40 border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 value={iataTicketValueInput}
                 onChange={(e) => setIataTicketValueInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && applyIataTicketValue()}
@@ -11205,7 +11205,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           <button
             type="button"
             onClick={() => setShowIataHistory(true)}
-            className="shrink-0 inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 border border-neutral-900 rounded-xl px-3 py-2 hover:bg-neutral-50"
+            className="shrink-0 inline-flex items-center gap-1.5 text-xs font-semibold text-amber-800 border border-amber-800 rounded-xl px-3 py-2 hover:bg-amber-50"
           >
             <History size={14} /> History
           </button>
@@ -11219,7 +11219,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="relative flex-1">
               <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
               <input
-                className="w-full border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="w-full border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 placeholder="Search by employee, company, ticket number, customer, destination, or airline"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
@@ -11229,13 +11229,13 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               type="button"
               onClick={() => setFiltersOpen(!filtersOpen)}
               className={`shrink-0 flex items-center gap-1.5 border rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
-                filtersOpen ? "border-neutral-800 text-neutral-900 bg-neutral-50" : "border-stone-300 text-stone-600 hover:bg-stone-50 bg-white"
+                filtersOpen ? "border-amber-700 text-amber-800 bg-amber-50" : "border-stone-300 text-stone-600 hover:bg-stone-50 bg-white"
               }`}
             >
               <SlidersHorizontal size={16} />
               <span className="hidden sm:inline">Filters</span>
               {activeFilterCount > 0 && (
-                <span className="bg-neutral-800 text-white text-[11px] font-bold rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center">
+                <span className="bg-amber-700 text-white text-[11px] font-bold rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center">
                   {activeFilterCount}
                 </span>
               )}
@@ -11248,7 +11248,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               title={hasActiveFilter ? "" : "Select at least one filter (year, month, company, employee, supplier, or search) before exporting"}
               className={`shrink-0 flex items-center gap-1.5 border rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
                 hasActiveFilter
-                  ? "text-neutral-900 border-neutral-900 hover:bg-neutral-50 bg-white"
+                  ? "text-amber-800 border-amber-800 hover:bg-amber-50 bg-white"
                   : "text-stone-400 border-stone-200 cursor-not-allowed bg-white"
               }`}
             >
@@ -11358,7 +11358,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="overflow-x-auto rounded-xl border border-stone-200" style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-x pan-y", overscrollBehaviorX: "contain" }}>
               <table className="w-full min-w-max text-xs border-collapse">
                 <thead>
-                  <tr className="bg-neutral-50/60 text-neutral-900 text-[11px] uppercase tracking-wide border-b-2 border-neutral-200">
+                  <tr className="bg-amber-50/60 text-amber-800 text-[11px] uppercase tracking-wide border-b-2 border-amber-200">
                     <th className="text-left px-1 py-0.5 font-semibold whitespace-nowrap">RN</th>
                     <ThFilter label="By" options={employeesAvailable} selected={selectedEmployee} onChange={setSelectedEmployee} />
                     <th className="text-left px-1 py-0.5 font-semibold whitespace-nowrap">Date</th>
@@ -11457,13 +11457,13 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         <div className="flex items-center gap-3 justify-end">
                           <button
                             onClick={() => exportMonth(m.key)}
-                            className="text-stone-400 hover:text-neutral-900 text-xs font-medium flex items-center gap-1"
+                            className="text-stone-400 hover:text-amber-800 text-xs font-medium flex items-center gap-1"
                           >
                             <Download size={13} /> Export
                           </button>
                           <button
                             onClick={() => setSelectedMonth(m.key)}
-                            className="text-neutral-900 text-xs font-medium hover:underline"
+                            className="text-amber-800 text-xs font-medium hover:underline"
                           >
                             View details
                           </button>
@@ -11490,7 +11490,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <Building2 size={16} className="text-stone-400" />
                       <button
                         onClick={() => setSelectedCompany([c.name])}
-                        className="font-medium text-stone-800 hover:text-neutral-900 hover:underline text-sm"
+                        className="font-medium text-stone-800 hover:text-amber-800 hover:underline text-sm"
                       >
                         {c.name}
                       </button>
@@ -11545,7 +11545,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             </div>
           </div>
           <div className="bg-white rounded-2xl border border-stone-200 p-2.5 sm:p-4 flex items-center gap-2 sm:gap-3 min-w-0">
-            <div className="bg-neutral-50 rounded-xl p-1.5 sm:p-2 text-black shrink-0"><Wallet size={18} className="sm:hidden" /><Wallet size={20} className="hidden sm:block" /></div>
+            <div className="bg-amber-50 rounded-xl p-1.5 sm:p-2 text-amber-900 shrink-0"><Wallet size={18} className="sm:hidden" /><Wallet size={20} className="hidden sm:block" /></div>
             <div className="min-w-0">
               <p className="text-xs text-stone-500">Total sales (EGP)</p>
               <p className="text-sm sm:text-lg font-bold truncate">{fmt((hasActiveHotelFilter ? hotelTotals : hotelCurrentMonthTotals).sold)}</p>
@@ -11565,13 +11565,13 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
         <div className="flex flex-wrap items-center gap-2 mb-4">
           <button
             onClick={() => { setShowAddSupplierPanel(!showAddSupplierPanel); setShowAddHotelNamePanel(false); }}
-            className="text-xs font-semibold text-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 hover:bg-neutral-50 flex items-center gap-1.5"
+            className="text-xs font-semibold text-amber-800 border border-amber-700 rounded-xl px-3 py-2 hover:bg-amber-50 flex items-center gap-1.5"
           >
             <Plus size={14} /> Add supplier
           </button>
           <button
             onClick={() => { setShowAddHotelNamePanel(!showAddHotelNamePanel); setShowAddSupplierPanel(false); }}
-            className="text-xs font-semibold text-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 hover:bg-neutral-50 flex items-center gap-1.5"
+            className="text-xs font-semibold text-amber-800 border border-amber-700 rounded-xl px-3 py-2 hover:bg-amber-50 flex items-center gap-1.5"
           >
             <Plus size={14} /> Add hotel name
           </button>
@@ -11582,7 +11582,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <h3 className="text-sm font-bold text-stone-700 mb-3">Suppliers</h3>
             <div className="flex gap-2 mb-3">
               <input
-                className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 value={newSupplierDraft}
                 onChange={(e) => setNewSupplierDraft(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleAddSupplierName()}
@@ -11590,7 +11590,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               />
               <button
                 onClick={handleAddSupplierName}
-                className="bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
+                className="bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
               >
                 Add
               </button>
@@ -11620,7 +11620,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <h3 className="text-sm font-bold text-stone-700 mb-3">Hotel names</h3>
             <div className="flex gap-2 mb-3">
               <input
-                className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 value={newHotelNameDraft}
                 onChange={(e) => setNewHotelNameDraft(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleAddHotelName()}
@@ -11628,7 +11628,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               />
               <button
                 onClick={handleAddHotelName}
-                className="bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
+                className="bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
               >
                 Add
               </button>
@@ -11668,7 +11668,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   Corporates
                 </label>
                 <select
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                   value={hotelForm.customer}
                   onChange={(e) => setHotelForm({ ...hotelForm, customer: e.target.value })}
                 >
@@ -11695,7 +11695,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 {hotelNameOther ? (
                   <div className="flex gap-2">
                     <input
-                      className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                      className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                       value={hotelForm.hotel}
                       onChange={(e) => setHotelForm({ ...hotelForm, hotel: e.target.value })}
                       placeholder="Enter hotel name"
@@ -11704,14 +11704,14 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     <button
                       type="button"
                       onClick={() => { setHotelNameOther(false); setHotelForm({ ...hotelForm, hotel: "" }); }}
-                      className="shrink-0 text-xs text-stone-500 hover:text-neutral-900 border border-stone-300 rounded-xl px-2"
+                      className="shrink-0 text-xs text-stone-500 hover:text-amber-800 border border-stone-300 rounded-xl px-2"
                     >
                       List
                     </button>
                   </div>
                 ) : (
                   <select
-                    className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                    className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                     value={hotelForm.hotel}
                     onChange={(e) => {
                       if (e.target.value === "__other__") {
@@ -11735,7 +11735,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 {hotelSupplierOther ? (
                   <div className="flex gap-2">
                     <input
-                      className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 ${hotelForm.supplier.trim() ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300"}`}
+                      className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 ${hotelForm.supplier.trim() ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300"}`}
                       value={hotelForm.supplier}
                       onChange={(e) => setHotelForm({ ...hotelForm, supplier: e.target.value })}
                       placeholder="Enter supplier name"
@@ -11744,14 +11744,14 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     <button
                       type="button"
                       onClick={() => { setHotelSupplierOther(false); setHotelForm({ ...hotelForm, supplier: "" }); }}
-                      className="shrink-0 text-xs text-stone-500 hover:text-neutral-900 border border-stone-300 rounded-xl px-2"
+                      className="shrink-0 text-xs text-stone-500 hover:text-amber-800 border border-stone-300 rounded-xl px-2"
                     >
                       List
                     </button>
                   </div>
                 ) : (
                   <select
-                    className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 ${hotelForm.supplier ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300 bg-white"}`}
+                    className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 ${hotelForm.supplier ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300 bg-white"}`}
                     value={hotelForm.supplier}
                     onChange={(e) => {
                       if (e.target.value === "__other__") {
@@ -11774,7 +11774,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <label className="text-xs text-stone-500 block mb-1">Booking date</label>
                 <input
                   type="date"
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={hotelForm.bookingDate}
                   onChange={(e) => setHotelForm({ ...hotelForm, bookingDate: e.target.value })}
                 />
@@ -11782,7 +11782,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Net currency</label>
                 <select
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={hotelForm.netCurrency}
                   onChange={(e) => setHotelForm({ ...hotelForm, netCurrency: e.target.value })}
                 >
@@ -11794,7 +11794,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Sold currency</label>
                 <select
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={hotelForm.soldCurrency}
                   onChange={(e) => setHotelForm({ ...hotelForm, soldCurrency: e.target.value })}
                 >
@@ -11806,7 +11806,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Notes</label>
                 <input
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={hotelForm.notes}
                   onChange={(e) => setHotelForm({ ...hotelForm, notes: e.target.value })}
                 />
@@ -11830,7 +11830,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     <div>
                       <label className="text-[11px] text-stone-500 block mb-1">Room type</label>
                       <select
-                        className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={line.roomType}
                         onChange={(e) => {
                           const roomType = e.target.value;
@@ -11846,7 +11846,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     <div>
                       <label className="text-[11px] text-stone-500 block mb-1">Meal plan</label>
                       <select
-                        className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={line.mealPlan}
                         onChange={(e) => updateHotelRoomLine(line.id, { mealPlan: e.target.value })}
                       >
@@ -11859,7 +11859,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <label className="text-[11px] text-stone-500 block mb-1">Check-in</label>
                       <input
                         type="date"
-                        className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={line.checkIn}
                         onChange={(e) => updateHotelRoomLine(line.id, { checkIn: e.target.value })}
                       />
@@ -11869,7 +11869,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <input
                         type="date"
                         min={line.checkIn || undefined}
-                        className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={line.checkOut}
                         onChange={(e) => updateHotelRoomLine(line.id, { checkOut: e.target.value })}
                       />
@@ -11883,7 +11883,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <input
                         type="number"
                         min="1"
-                        className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={line.count}
                         onChange={(e) => updateHotelRoomLine(line.id, { count: e.target.value })}
                       />
@@ -11893,7 +11893,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <div className="relative">
                         <input
                           type="number"
-                          className="w-28 border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                          className="w-28 border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                           value={line.netPrice}
                           onChange={(e) => updateHotelRoomLine(line.id, { netPrice: e.target.value })}
                           onBlur={(e) => updateHotelRoomLine(line.id, { netPrice: addCentsOnBlur(e.target.value) })}
@@ -11911,7 +11911,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <div className="relative">
                         <input
                           type="number"
-                          className="w-28 border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                          className="w-28 border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                           value={line.soldPrice}
                           onChange={(e) => updateHotelRoomLine(line.id, { soldPrice: e.target.value })}
                           onBlur={(e) => updateHotelRoomLine(line.id, { soldPrice: addCentsOnBlur(e.target.value) })}
@@ -11952,7 +11952,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                           )}
                         </label>
                         <input
-                          className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                          className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                           value={g.name}
                           onChange={(e) => updateRoomGuest(line.id, i, e.target.value)}
                           placeholder={i === 0 ? "Guest 1 name (required)" : `Guest ${i + 1} name`}
@@ -11968,7 +11968,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <button
                         type="button"
                         onClick={() => addRoomChild(line.id)}
-                        className="text-[11px] font-semibold text-neutral-900 border border-neutral-800 border-dashed rounded-lg px-2 py-1 hover:bg-neutral-50"
+                        className="text-[11px] font-semibold text-amber-800 border border-amber-700 border-dashed rounded-lg px-2 py-1 hover:bg-amber-50"
                       >
                         + Add child
                       </button>
@@ -11980,7 +11980,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                             <div className="sm:col-span-6">
                               <label className="text-[11px] text-stone-500 block mb-1">Child {i + 1} name</label>
                               <input
-                                className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                                className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                                 value={c.name}
                                 onChange={(e) => updateRoomChild(line.id, c.id, { name: e.target.value })}
                                 placeholder="Child name"
@@ -11992,7 +11992,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                                 type="text"
                                 inputMode="numeric"
                                 pattern="[0-9]*"
-                                className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                                className="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                                 value={c.age}
                                 onChange={(e) => updateRoomChild(line.id, c.id, { age: sanitizeAgeInput(e.target.value) })}
                                 placeholder="e.g. 4"
@@ -12016,7 +12016,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               ))}
               <button
                 onClick={addHotelRoomLine}
-                className="text-xs font-semibold text-neutral-900 border border-neutral-800 border-dashed rounded-lg px-3 py-1.5 hover:bg-neutral-50"
+                className="text-xs font-semibold text-amber-800 border border-amber-700 border-dashed rounded-lg px-3 py-1.5 hover:bg-amber-50"
               >
                 + Add another room
               </button>
@@ -12039,7 +12039,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="flex items-center gap-3 mt-4">
               <button
                 onClick={handleSaveHotel}
-                className="bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-5 py-2.5 hover:brightness-110"
+                className="bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-5 py-2.5 hover:brightness-110"
               >
                 {hotelEditingId ? "Save changes" : "Add booking"}
               </button>
@@ -12063,7 +12063,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="relative flex-1">
               <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
               <input
-                className="w-full border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="w-full border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 placeholder="Search by employee, customer, hotel, or supplier"
                 value={hotelQuery}
                 onChange={(e) => setHotelQuery(e.target.value)}
@@ -12073,13 +12073,13 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               type="button"
               onClick={() => setHotelFiltersOpen(!hotelFiltersOpen)}
               className={`shrink-0 flex items-center gap-1.5 border rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
-                hotelFiltersOpen ? "border-neutral-800 text-neutral-900 bg-neutral-50" : "border-stone-300 text-stone-600 hover:bg-stone-50 bg-white"
+                hotelFiltersOpen ? "border-amber-700 text-amber-800 bg-amber-50" : "border-stone-300 text-stone-600 hover:bg-stone-50 bg-white"
               }`}
             >
               <SlidersHorizontal size={16} />
               <span className="hidden sm:inline">Filters</span>
               {activeHotelFilterCount > 0 && (
-                <span className="bg-neutral-800 text-white text-[11px] font-bold rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center">
+                <span className="bg-amber-700 text-white text-[11px] font-bold rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center">
                   {activeHotelFilterCount}
                 </span>
               )}
@@ -12244,7 +12244,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   <h3 className="text-lg font-bold text-stone-800">{viewingHotelBooking.hotel}</h3>
                   <p className="text-sm text-stone-500">
                     {viewingHotelBooking.customer && viewingHotelBooking.customer.trim() ? (
-                      <>Company: {viewingHotelBooking.customer} <span className="text-neutral-800 font-semibold">(Corporate)</span></>
+                      <>Company: {viewingHotelBooking.customer} <span className="text-amber-700 font-semibold">(Corporate)</span></>
                     ) : (
                       <span className="italic">Individual booking</span>
                     )}
@@ -12253,7 +12253,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div className="flex items-center gap-1 shrink-0">
                   <button
                     onClick={() => handlePrintHotel(viewingHotelBooking)}
-                    className="text-stone-400 hover:text-neutral-900 p-1.5"
+                    className="text-stone-400 hover:text-amber-800 p-1.5"
                     title="Print"
                   >
                     <Printer size={18} />
@@ -12268,7 +12268,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   {hotelsPerm.canAdd && (
                     <button
                       onClick={() => { navigateToSection("hotels"); handleDuplicateHotelClick(viewingHotelBooking); setViewingHotelBooking(null); }}
-                      className="text-stone-400 hover:text-neutral-900 p-1.5"
+                      className="text-stone-400 hover:text-amber-800 p-1.5"
                       title="Duplicate as new booking"
                     >
                       <Copy size={18} />
@@ -12277,7 +12277,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   {hotelsPerm.canEdit && (
                     <button
                       onClick={() => { navigateToSection("hotels"); handleEditHotelClick(viewingHotelBooking); setViewingHotelBooking(null); }}
-                      className="text-stone-400 hover:text-neutral-900 p-1.5"
+                      className="text-stone-400 hover:text-amber-800 p-1.5"
                       title="Edit"
                     >
                       <Pencil size={18} />
@@ -12418,7 +12418,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             </div>
           </div>
           <div className="bg-white rounded-2xl border border-stone-200 p-2.5 sm:p-4 flex items-center gap-2 sm:gap-3 min-w-0">
-            <div className="bg-neutral-50 rounded-xl p-1.5 sm:p-2 text-black shrink-0"><Wallet size={18} className="sm:hidden" /><Wallet size={20} className="hidden sm:block" /></div>
+            <div className="bg-amber-50 rounded-xl p-1.5 sm:p-2 text-amber-900 shrink-0"><Wallet size={18} className="sm:hidden" /><Wallet size={20} className="hidden sm:block" /></div>
             <div className="min-w-0">
               <p className="text-xs text-stone-500">Total sales (EGP)</p>
               <p className="text-sm sm:text-lg font-bold truncate">{fmt((hasActiveVisaFilter ? visaTotals : visaCurrentMonthTotals).sold)}</p>
@@ -12438,13 +12438,13 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
         <div className="flex flex-wrap items-center gap-2 mb-4">
           <button
             onClick={() => setShowAddVisaSupplierPanel(!showAddVisaSupplierPanel)}
-            className="text-xs font-semibold text-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 hover:bg-neutral-50 flex items-center gap-1.5"
+            className="text-xs font-semibold text-amber-800 border border-amber-700 rounded-xl px-3 py-2 hover:bg-amber-50 flex items-center gap-1.5"
           >
             <Plus size={14} /> Add supplier
           </button>
           <button
             onClick={() => setShowVisaChecker(!showVisaChecker)}
-            className="text-xs font-semibold text-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 hover:bg-neutral-50 flex items-center gap-1.5"
+            className="text-xs font-semibold text-amber-800 border border-amber-700 rounded-xl px-3 py-2 hover:bg-amber-50 flex items-center gap-1.5"
           >
             <Globe size={14} /> Check visa requirement
           </button>
@@ -12458,7 +12458,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="bg-white rounded-2xl border border-stone-200 p-4 md:p-5 w-full max-w-md my-8 md:my-0 max-h-[90vh] overflow-y-auto">
               <div className="flex items-center justify-between mb-1">
                 <h2 className="font-semibold text-stone-900 flex items-center gap-2">
-                  <Globe size={16} className="text-neutral-900" /> Visa requirement checker
+                  <Globe size={16} className="text-amber-800" /> Visa requirement checker
                 </h2>
                 <button
                   onClick={() => setShowVisaChecker(false)}
@@ -12478,7 +12478,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <input
-                    className="flex-1 min-w-[200px] border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="flex-1 min-w-[200px] border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                     value={visaApiKeyDraft}
                     onChange={(e) => setVisaApiKeyDraft(e.target.value)}
                     placeholder="Paste your RapidAPI key"
@@ -12486,7 +12486,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   />
                   <button
                     onClick={handleSaveVisaApiKey}
-                    className="bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
+                    className="bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
                   >
                     Save key
                   </button>
@@ -12500,7 +12500,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     <select
                       value={visaCheckPassport}
                       onChange={(e) => setVisaCheckPassport(e.target.value)}
-                      className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                      className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                     >
                       {VISA_COUNTRY_LIST.map((c) => (
                         <option key={c.code} value={c.code}>{c.name}</option>
@@ -12512,7 +12512,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     <select
                       value={visaCheckDestination}
                       onChange={(e) => setVisaCheckDestination(e.target.value)}
-                      className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                      className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                     >
                       <option value="">Select destination</option>
                       {VISA_COUNTRY_LIST.map((c) => (
@@ -12524,7 +12524,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     <button
                       onClick={checkVisaRequirement}
                       disabled={visaCheckLoading}
-                      className="flex-1 bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2.5 hover:brightness-110 disabled:opacity-60"
+                      className="flex-1 bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2.5 hover:brightness-110 disabled:opacity-60"
                     >
                       {visaCheckLoading ? "Checking..." : "Check"}
                     </button>
@@ -12561,7 +12561,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
 
                     {visaCheckResult.visa_rules?.secondary_rule?.link && (
                       <p className="text-xs text-stone-600">
-                        <a href={visaCheckResult.visa_rules.secondary_rule.link} target="_blank" rel="noreferrer" className="underline text-neutral-900">Apply / official visa link</a>
+                        <a href={visaCheckResult.visa_rules.secondary_rule.link} target="_blank" rel="noreferrer" className="underline text-amber-800">Apply / official visa link</a>
                       </p>
                     )}
 
@@ -12597,7 +12597,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     )}
                     {visaCheckResult.destination?.embassy_url && (
                       <p className="text-xs">
-                        <a href={visaCheckResult.destination.embassy_url} target="_blank" rel="noreferrer" className="underline text-neutral-900">Embassy info</a>
+                        <a href={visaCheckResult.destination.embassy_url} target="_blank" rel="noreferrer" className="underline text-amber-800">Embassy info</a>
                       </p>
                     )}
                   </div>
@@ -12613,7 +12613,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <h3 className="text-sm font-bold text-stone-700 mb-3">Visa suppliers</h3>
             <div className="flex gap-2 mb-3">
               <input
-                className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 value={newVisaSupplierDraft}
                 onChange={(e) => setNewVisaSupplierDraft(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleAddVisaSupplierName()}
@@ -12621,7 +12621,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               />
               <button
                 onClick={handleAddVisaSupplierName}
-                className="bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
+                className="bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
               >
                 Add
               </button>
@@ -12661,7 +12661,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   Corporates
                 </label>
                 <select
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                   value={visaForm.customer}
                   onChange={(e) => setVisaForm({ ...visaForm, customer: e.target.value })}
                 >
@@ -12689,7 +12689,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   type="number"
                   min={1}
                   max={50}
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={visaForm.customersCount}
                   onChange={(e) => handleVisaCustomersCountChange(e.target.value)}
                   onBlur={(e) => {
@@ -12703,7 +12703,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Visa</label>
                 <input
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={visaForm.visaType}
                   onChange={(e) => setVisaForm({ ...visaForm, visaType: e.target.value })}
                   placeholder="e.g. Schengen, UK, Dubai"
@@ -12713,7 +12713,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <label className="text-xs text-stone-500 block mb-1">Booking date</label>
                 <input
                   type="date"
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={visaForm.bookingDate}
                   onChange={(e) => setVisaForm({ ...visaForm, bookingDate: e.target.value })}
                 />
@@ -12723,7 +12723,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 {visaSupplierOther ? (
                   <div className="flex gap-2">
                     <input
-                      className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 ${visaForm.supplier.trim() ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300"}`}
+                      className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 ${visaForm.supplier.trim() ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300"}`}
                       value={visaForm.supplier}
                       onChange={(e) => setVisaForm({ ...visaForm, supplier: e.target.value })}
                       placeholder="Enter supplier name"
@@ -12732,14 +12732,14 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     <button
                       type="button"
                       onClick={() => { setVisaSupplierOther(false); setVisaForm({ ...visaForm, supplier: "" }); }}
-                      className="shrink-0 text-xs text-stone-500 hover:text-neutral-900 border border-stone-300 rounded-xl px-2"
+                      className="shrink-0 text-xs text-stone-500 hover:text-amber-800 border border-stone-300 rounded-xl px-2"
                     >
                       List
                     </button>
                   </div>
                 ) : (
                   <select
-                    className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 ${visaForm.supplier ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300 bg-white"}`}
+                    className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 ${visaForm.supplier ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300 bg-white"}`}
                     value={visaForm.supplier}
                     onChange={(e) => {
                       if (e.target.value === "__other__") {
@@ -12770,7 +12770,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 {visaForm.customers.map((c, i) => (
                   <input
                     key={i}
-                    className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                     value={c.name}
                     onChange={(e) => handleVisaCustomerNameChange(i, e.target.value)}
                     placeholder={i === 0 ? `Customer ${i + 1} name (required)` : `Customer ${i + 1} name`}
@@ -12783,7 +12783,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Net currency</label>
                 <select
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                   value={visaForm.netCurrency}
                   onChange={(e) => setVisaForm({ ...visaForm, netCurrency: e.target.value })}
                 >
@@ -12797,7 +12797,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div className="relative">
                   <input
                     type="number"
-                    className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                    className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                     value={visaForm.netPrice}
                     onChange={(e) => setVisaForm({ ...visaForm, netPrice: e.target.value })}
                     onBlur={(e) => setVisaForm({ ...visaForm, netPrice: addCentsOnBlur(e.target.value) })}
@@ -12813,7 +12813,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Sold currency</label>
                 <select
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                   value={visaForm.soldCurrency}
                   onChange={(e) => setVisaForm({ ...visaForm, soldCurrency: e.target.value })}
                 >
@@ -12827,7 +12827,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div className="relative">
                   <input
                     type="number"
-                    className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                    className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                     value={visaForm.soldPrice}
                     onChange={(e) => setVisaForm({ ...visaForm, soldPrice: e.target.value })}
                     onBlur={(e) => setVisaForm({ ...visaForm, soldPrice: addCentsOnBlur(e.target.value) })}
@@ -12863,7 +12863,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="flex items-center gap-2">
               <button
                 onClick={handleSaveVisa}
-                className="bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
+                className="bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
               >
                 {visaEditingId ? "Save changes" : "Add visa booking"}
               </button>
@@ -12887,7 +12887,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="relative flex-1">
               <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
               <input
-                className="w-full border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="w-full border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 placeholder="Search by customer name, visa type, or supplier"
                 value={visaQuery}
                 onChange={(e) => setVisaQuery(e.target.value)}
@@ -12897,13 +12897,13 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               type="button"
               onClick={() => setVisaFiltersOpen(!visaFiltersOpen)}
               className={`shrink-0 flex items-center gap-1.5 border rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
-                visaFiltersOpen ? "border-neutral-800 text-neutral-900 bg-neutral-50" : "border-stone-300 text-stone-600 hover:bg-stone-50 bg-white"
+                visaFiltersOpen ? "border-amber-700 text-amber-800 bg-amber-50" : "border-stone-300 text-stone-600 hover:bg-stone-50 bg-white"
               }`}
             >
               <SlidersHorizontal size={16} />
               <span className="hidden sm:inline">Filters</span>
               {activeVisaFilterCount > 0 && (
-                <span className="bg-neutral-800 text-white text-[11px] font-bold rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center">
+                <span className="bg-amber-700 text-white text-[11px] font-bold rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center">
                   {activeVisaFilterCount}
                 </span>
               )}
@@ -13056,7 +13056,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   </p>
                   <p className="text-sm text-stone-500">
                     {viewingVisaBooking.customer && viewingVisaBooking.customer.trim() ? (
-                      <>Company: {viewingVisaBooking.customer} <span className="text-neutral-800 font-semibold">(Corporate)</span></>
+                      <>Company: {viewingVisaBooking.customer} <span className="text-amber-700 font-semibold">(Corporate)</span></>
                     ) : (
                       <span className="italic">Individual booking</span>
                     )}
@@ -13065,7 +13065,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div className="flex items-center gap-1 shrink-0">
                   <button
                     onClick={() => handlePrintVisa(viewingVisaBooking)}
-                    className="text-stone-400 hover:text-neutral-900 p-1.5"
+                    className="text-stone-400 hover:text-amber-800 p-1.5"
                     title="Print"
                   >
                     <Printer size={18} />
@@ -13080,7 +13080,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   {visaPerm.canAdd && (
                     <button
                       onClick={() => { navigateToSection("visa"); handleDuplicateVisaClick(viewingVisaBooking); setViewingVisaBooking(null); }}
-                      className="text-stone-400 hover:text-neutral-900 p-1.5"
+                      className="text-stone-400 hover:text-amber-800 p-1.5"
                       title="Duplicate as new booking"
                     >
                       <Copy size={18} />
@@ -13089,7 +13089,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   {visaPerm.canEdit && (
                     <button
                       onClick={() => { navigateToSection("visa"); handleEditVisaClick(viewingVisaBooking); setViewingVisaBooking(null); }}
-                      className="text-stone-400 hover:text-neutral-900 p-1.5"
+                      className="text-stone-400 hover:text-amber-800 p-1.5"
                       title="Edit"
                     >
                       <Pencil size={18} />
@@ -13210,7 +13210,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             </div>
           </div>
           <div className="bg-white rounded-2xl border border-stone-200 p-2.5 sm:p-4 flex items-center gap-2 sm:gap-3 min-w-0">
-            <div className="bg-neutral-50 rounded-xl p-1.5 sm:p-2 text-black shrink-0"><Wallet size={18} className="sm:hidden" /><Wallet size={20} className="hidden sm:block" /></div>
+            <div className="bg-amber-50 rounded-xl p-1.5 sm:p-2 text-amber-900 shrink-0"><Wallet size={18} className="sm:hidden" /><Wallet size={20} className="hidden sm:block" /></div>
             <div className="min-w-0">
               <p className="text-xs text-stone-500">Total sales (EGP)</p>
               <p className="text-sm sm:text-lg font-bold truncate">{fmt((hasActiveCarFilter ? carTotals : carCurrentMonthTotals).sold)}</p>
@@ -13230,7 +13230,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
         <div className="flex flex-wrap items-center gap-2 mb-4">
           <button
             onClick={() => setShowAddCarSupplierPanel(!showAddCarSupplierPanel)}
-            className="text-xs font-semibold text-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 hover:bg-neutral-50 flex items-center gap-1.5"
+            className="text-xs font-semibold text-amber-800 border border-amber-700 rounded-xl px-3 py-2 hover:bg-amber-50 flex items-center gap-1.5"
           >
             <Plus size={14} /> Add supplier
           </button>
@@ -13241,7 +13241,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <h3 className="text-sm font-bold text-stone-700 mb-3">Transfer suppliers</h3>
             <div className="flex gap-2 mb-3">
               <input
-                className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="w-full max-w-xs border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 value={newCarSupplierDraft}
                 onChange={(e) => setNewCarSupplierDraft(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleAddCarSupplierName()}
@@ -13249,7 +13249,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               />
               <button
                 onClick={handleAddCarSupplierName}
-                className="bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
+                className="bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
               >
                 Add
               </button>
@@ -13290,7 +13290,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   Corporates
                 </label>
                 <select
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                   value={carForm.customer}
                   onChange={(e) => setCarForm({ ...carForm, customer: e.target.value })}
                 >
@@ -13315,7 +13315,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Customer name</label>
                 <input
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={carForm.customerName}
                   onChange={(e) => setCarForm({ ...carForm, customerName: e.target.value })}
                   placeholder="Customer name"
@@ -13324,7 +13324,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Phone number</label>
                 <input
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={carForm.phone}
                   onChange={(e) => setCarForm({ ...carForm, phone: e.target.value })}
                   placeholder="Phone number"
@@ -13335,7 +13335,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <input
                   type="date"
                   max={todayDateStr()}
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={carForm.entryDate}
                   onChange={(e) => setCarForm({ ...carForm, entryDate: e.target.value })}
                 />
@@ -13347,7 +13347,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Route — from</label>
                 <input
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={carForm.routeFrom}
                   onChange={(e) => setCarForm({ ...carForm, routeFrom: e.target.value })}
                   placeholder="e.g. Cairo Airport"
@@ -13356,7 +13356,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Route — to</label>
                 <input
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={carForm.routeTo}
                   onChange={(e) => setCarForm({ ...carForm, routeTo: e.target.value })}
                   placeholder="e.g. Downtown Hotel"
@@ -13370,7 +13370,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <label className="text-xs text-stone-500 block mb-1">Date</label>
                 <input
                   type="date"
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={carForm.bookingDate}
                   onChange={(e) => setCarForm({ ...carForm, bookingDate: e.target.value })}
                 />
@@ -13388,7 +13388,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Car type</label>
                 <select
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                   value={carForm.carType}
                   onChange={(e) => setCarForm({ ...carForm, carType: e.target.value })}
                 >
@@ -13403,7 +13403,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 {carSupplierOther ? (
                   <div className="flex gap-2">
                     <input
-                      className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 ${carForm.supplier.trim() ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300"}`}
+                      className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 ${carForm.supplier.trim() ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300"}`}
                       value={carForm.supplier}
                       onChange={(e) => setCarForm({ ...carForm, supplier: e.target.value })}
                       placeholder="Enter supplier name"
@@ -13412,14 +13412,14 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     <button
                       type="button"
                       onClick={() => { setCarSupplierOther(false); setCarForm({ ...carForm, supplier: "" }); }}
-                      className="shrink-0 text-xs text-stone-500 hover:text-neutral-900 border border-stone-300 rounded-xl px-2"
+                      className="shrink-0 text-xs text-stone-500 hover:text-amber-800 border border-stone-300 rounded-xl px-2"
                     >
                       List
                     </button>
                   </div>
                 ) : (
                   <select
-                    className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 ${carForm.supplier ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300 bg-white"}`}
+                    className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 ${carForm.supplier ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300 bg-white"}`}
                     value={carForm.supplier}
                     onChange={(e) => {
                       if (e.target.value === "__other__") {
@@ -13456,7 +13456,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 {carForm.hasWaiting && (
                   <input
                     type="number"
-                    className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                     value={carForm.waitingHours}
                     onChange={(e) => setCarForm({ ...carForm, waitingHours: e.target.value })}
                     placeholder="Number of hours"
@@ -13496,7 +13496,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 </label>
                 {carForm.startsAtAirport && (
                   <input
-                    className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                     value={carForm.flightNumber}
                     onChange={(e) => setCarForm({ ...carForm, flightNumber: e.target.value })}
                     placeholder="Flight number"
@@ -13512,7 +13512,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   <label className="text-xs text-stone-500 block mb-1">Return date</label>
                   <input
                     type="date"
-                    className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                    className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                     value={carForm.returnDate}
                     onChange={(e) => setCarForm({ ...carForm, returnDate: e.target.value })}
                   />
@@ -13533,7 +13533,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Currency (collection/tip)</label>
                 <select
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                   value={carForm.currency}
                   onChange={(e) => setCarForm({ ...carForm, currency: e.target.value })}
                 >
@@ -13547,7 +13547,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div className="relative">
                   <input
                     type="number"
-                    className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                    className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                     value={carForm.collection}
                     onChange={(e) => setCarForm({ ...carForm, collection: e.target.value })}
                     onBlur={(e) => setCarForm({ ...carForm, collection: addCentsOnBlur(e.target.value) })}
@@ -13565,7 +13565,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div className="relative">
                   <input
                     type="number"
-                    className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                    className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                     value={carForm.driverTip}
                     onChange={(e) => setCarForm({ ...carForm, driverTip: e.target.value })}
                     onBlur={(e) => setCarForm({ ...carForm, driverTip: addCentsOnBlur(e.target.value) })}
@@ -13582,7 +13582,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Net currency</label>
                 <select
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                   value={carForm.netCurrency}
                   onChange={(e) => setCarForm({ ...carForm, netCurrency: e.target.value })}
                 >
@@ -13596,7 +13596,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div className="relative">
                   <input
                     type="number"
-                    className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                    className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                     value={carForm.netPrice}
                     onChange={(e) => setCarForm({ ...carForm, netPrice: e.target.value })}
                     onBlur={(e) => setCarForm({ ...carForm, netPrice: addCentsOnBlur(e.target.value) })}
@@ -13612,7 +13612,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Sold currency</label>
                 <select
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                   value={carForm.soldCurrency}
                   onChange={(e) => setCarForm({ ...carForm, soldCurrency: e.target.value })}
                 >
@@ -13626,7 +13626,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div className="relative">
                   <input
                     type="number"
-                    className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 price-input"
+                    className="w-28 border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 price-input"
                     value={carForm.soldPrice}
                     onChange={(e) => setCarForm({ ...carForm, soldPrice: e.target.value })}
                     onBlur={(e) => setCarForm({ ...carForm, soldPrice: addCentsOnBlur(e.target.value) })}
@@ -13651,7 +13651,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="flex items-center gap-2">
               <button
                 onClick={handleSaveCar}
-                className="bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
+                className="bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl px-4 py-2 hover:brightness-110"
               >
                 {carEditingId ? "Save changes" : "Add transfer booking"}
               </button>
@@ -13675,7 +13675,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="relative flex-1">
               <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
               <input
-                className="w-full border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="w-full border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 placeholder="Search by customer, route, car type, supplier, or flight number"
                 value={carQuery}
                 onChange={(e) => setCarQuery(e.target.value)}
@@ -13685,13 +13685,13 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               type="button"
               onClick={() => setCarFiltersOpen(!carFiltersOpen)}
               className={`shrink-0 flex items-center gap-1.5 border rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
-                carFiltersOpen ? "border-neutral-800 text-neutral-900 bg-neutral-50" : "border-stone-300 text-stone-600 hover:bg-stone-50 bg-white"
+                carFiltersOpen ? "border-amber-700 text-amber-800 bg-amber-50" : "border-stone-300 text-stone-600 hover:bg-stone-50 bg-white"
               }`}
             >
               <SlidersHorizontal size={16} />
               <span className="hidden sm:inline">Filters</span>
               {activeCarFilterCount > 0 && (
-                <span className="bg-neutral-800 text-white text-[11px] font-bold rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center">
+                <span className="bg-amber-700 text-white text-[11px] font-bold rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center">
                   {activeCarFilterCount}
                 </span>
               )}
@@ -13856,7 +13856,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   <p className="text-sm text-stone-500">{viewingCarBooking.phone || "-"}</p>
                   <p className="text-sm text-stone-500">
                     {viewingCarBooking.customer && viewingCarBooking.customer.trim() ? (
-                      <>Company: {viewingCarBooking.customer} <span className="text-neutral-800 font-semibold">(Corporate)</span></>
+                      <>Company: {viewingCarBooking.customer} <span className="text-amber-700 font-semibold">(Corporate)</span></>
                     ) : (
                       <span className="italic">Individual booking</span>
                     )}
@@ -13865,7 +13865,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div className="flex items-center gap-1 shrink-0">
                   <button
                     onClick={() => handlePrintCar(viewingCarBooking)}
-                    className="text-stone-400 hover:text-neutral-900 p-1.5"
+                    className="text-stone-400 hover:text-amber-800 p-1.5"
                     title="Print"
                   >
                     <Printer size={18} />
@@ -13880,7 +13880,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   {carsPerm.canAdd && (
                     <button
                       onClick={() => { navigateToSection("cars"); handleDuplicateCarClick(viewingCarBooking); setViewingCarBooking(null); }}
-                      className="text-stone-400 hover:text-neutral-900 p-1.5"
+                      className="text-stone-400 hover:text-amber-800 p-1.5"
                       title="Duplicate as new booking"
                     >
                       <Copy size={18} />
@@ -13889,7 +13889,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   {carsPerm.canEdit && (
                     <button
                       onClick={() => { navigateToSection("cars"); handleEditCarClick(viewingCarBooking); setViewingCarBooking(null); }}
-                      className="text-stone-400 hover:text-neutral-900 p-1.5"
+                      className="text-stone-400 hover:text-amber-800 p-1.5"
                       title="Edit"
                     >
                       <Pencil size={18} />
@@ -14057,7 +14057,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         onClick={() => setActiveActivityWidgetId(w.id)}
                         className="flex flex-col items-center gap-1.5 w-20 group"
                       >
-                        <span className="w-14 h-14 rounded-2xl bg-neutral-50 text-neutral-900 flex items-center justify-center group-hover:bg-neutral-100 transition-colors">
+                        <span className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-800 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
                           <Icon size={22} />
                         </span>
                         <span className="text-[11px] font-medium text-stone-600 text-center leading-tight">
@@ -14106,7 +14106,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         href={FEATURED_ACTIVITY_DEAL.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs font-semibold text-white bg-neutral-900 rounded-lg px-2.5 py-1.5 hover:bg-black"
+                        className="text-xs font-semibold text-white bg-amber-800 rounded-lg px-2.5 py-1.5 hover:bg-amber-900"
                       >
                         Book
                       </a>
@@ -14139,7 +14139,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     searchActivityCities(v);
                   }}
                   placeholder="Search a city (e.g. Paris, Rome, Cairo)…"
-                  className="w-full border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                 />
               </div>
               {activityCitySearching && <p className="text-xs text-stone-400 mt-2">Searching…</p>}
@@ -14152,7 +14152,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       onClick={() => loadActivityProducts(c)}
                       className={`flex items-center gap-1.5 text-xs font-medium rounded-full px-3 py-1.5 border transition-colors ${
                         activitySelectedCity && activitySelectedCity.id === c.id
-                          ? "bg-neutral-800 border-neutral-800 text-white"
+                          ? "bg-amber-700 border-amber-700 text-white"
                           : "bg-white border-stone-300 text-stone-600 hover:bg-stone-50"
                       }`}
                     >
@@ -14199,7 +14199,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                               href={activityProductLink(p)}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-xs font-semibold text-white bg-neutral-900 rounded-lg px-2.5 py-1.5 hover:bg-black"
+                              className="text-xs font-semibold text-white bg-amber-800 rounded-lg px-2.5 py-1.5 hover:bg-amber-900"
                             >
                               Book
                             </a>
@@ -14239,7 +14239,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     </div>
                   </div>
                   <div className="bg-white rounded-2xl border border-stone-200 p-2.5 sm:p-4 flex items-center gap-2 sm:gap-3 min-w-0">
-                    <div className="bg-neutral-50 rounded-xl p-1.5 sm:p-2 text-black shrink-0"><Wallet size={18} className="sm:hidden" /><Wallet size={20} className="hidden sm:block" /></div>
+                    <div className="bg-amber-50 rounded-xl p-1.5 sm:p-2 text-amber-900 shrink-0"><Wallet size={18} className="sm:hidden" /><Wallet size={20} className="hidden sm:block" /></div>
                     <div className="min-w-0">
                       <p className="text-xs text-stone-500">Total sales (EGP)</p>
                       <p className="text-sm sm:text-lg font-bold truncate">{fmt(filesGrandTotals.sold)}</p>
@@ -14260,7 +14260,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     <div className="relative flex-1">
                       <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
                       <input
-                        className="w-full border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         placeholder="Search by serial, company, notes, or employee"
                         value={fileQuery}
                         onChange={(e) => setFileQuery(e.target.value)}
@@ -14270,13 +14270,13 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       type="button"
                       onClick={() => setFileFiltersOpen(!fileFiltersOpen)}
                       className={`shrink-0 flex items-center gap-1.5 border rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
-                        fileFiltersOpen ? "border-neutral-800 text-neutral-900 bg-neutral-50" : "border-stone-300 text-stone-600 hover:bg-stone-50 bg-white"
+                        fileFiltersOpen ? "border-amber-700 text-amber-800 bg-amber-50" : "border-stone-300 text-stone-600 hover:bg-stone-50 bg-white"
                       }`}
                     >
                       <SlidersHorizontal size={16} />
                       <span className="hidden sm:inline">Filters</span>
                       {activeFileFilterCount > 0 && (
-                        <span className="bg-neutral-800 text-white text-[11px] font-bold rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center">
+                        <span className="bg-amber-700 text-white text-[11px] font-bold rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center">
                           {activeFileFilterCount}
                         </span>
                       )}
@@ -14336,7 +14336,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <div className="bg-white rounded-2xl border border-stone-200 divide-y divide-stone-100 overflow-hidden mb-6">
                   <button
                     onClick={startNewFileDraft}
-                    className="w-full flex items-center gap-2 px-4 py-3 text-neutral-900 hover:bg-neutral-50/50 text-sm font-semibold text-left"
+                    className="w-full flex items-center gap-2 px-4 py-3 text-amber-800 hover:bg-amber-50/50 text-sm font-semibold text-left"
                   >
                     <Plus size={16} /> Create new file
                   </button>
@@ -14353,7 +14353,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       return (
                         <div
                           key={f.id}
-                          className={`w-full flex items-center justify-between gap-3 px-4 py-3 ${isYearLocked("files", f.createdAt) ? "bg-stone-200/70 grayscale hover:bg-stone-200" : "hover:bg-neutral-50/50"}`}
+                          className={`w-full flex items-center justify-between gap-3 px-4 py-3 ${isYearLocked("files", f.createdAt) ? "bg-stone-200/70 grayscale hover:bg-stone-200" : "hover:bg-amber-50/50"}`}
                         >
                           <button
                             onClick={() => { setOpenFileId(f.id); setEditingFileServices(false); }}
@@ -14397,7 +14397,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <button
                   onClick={cancelDraftFile}
-                  className="mb-4 text-stone-500 hover:text-neutral-900 text-sm font-semibold flex items-center gap-1.5"
+                  className="mb-4 text-stone-500 hover:text-amber-800 text-sm font-semibold flex items-center gap-1.5"
                 >
                   <ArrowLeft size={15} /> Cancel
                 </button>
@@ -14410,7 +14410,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <label className="text-xs text-stone-500 block mb-1">Serial</label>
                       <input
                         type="text"
-                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={draftFile.serial || ""}
                         onChange={(e) => updateDraftField("serial", e.target.value)}
                       />
@@ -14420,7 +14420,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <input
                         type="date"
                         max={todayDateStr()}
-                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={draftFile.createdAt || ""}
                         onChange={(e) =>
                           e.target.value && updateDraftDate(e.target.value > todayDateStr() ? todayDateStr() : e.target.value)
@@ -14432,7 +14432,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <input
                         type="text"
                         list="file-company-list"
-                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={draftFile.company || ""}
                         onChange={(e) => updateDraftField("company", e.target.value)}
                       />
@@ -14446,7 +14446,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <label className="text-xs text-stone-500 block mb-1">Notes</label>
                       <input
                         type="text"
-                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={draftFile.notes || ""}
                         onChange={(e) => updateDraftField("notes", e.target.value)}
                       />
@@ -14456,13 +14456,13 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   <div className="flex flex-wrap gap-2 mb-4">
                     <button
                       onClick={() => setShowFilePicker(true)}
-                      className="text-neutral-900 border border-neutral-900 hover:bg-neutral-50 text-xs font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5"
+                      className="text-amber-800 border border-amber-800 hover:bg-amber-50 text-xs font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5"
                     >
                       <Plus size={14} /> Add services
                     </button>
                     <button
                       onClick={confirmDraftFile}
-                      className="bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-xs font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5 shadow-sm shadow-neutral-900/30"
+                      className="bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-xs font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5 shadow-sm shadow-amber-800/30"
                     >
                       <Plus size={14} /> Add file
                     </button>
@@ -14498,7 +14498,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                           onClick={() => viewFileItemDetails(it, { draft: true, itemId: it.id })}
                           className="min-w-0 text-left flex-1"
                         >
-                          <p className="text-xs text-neutral-900 font-semibold">{FILE_SOURCE_LABELS[it.sourceType] || it.sourceType}</p>
+                          <p className="text-xs text-amber-800 font-semibold">{FILE_SOURCE_LABELS[it.sourceType] || it.sourceType}</p>
                           <p className="text-sm text-stone-900 truncate">{r.label}</p>
                           <p className="text-xs text-stone-400">{r.date ? formatDisplayDate(r.date) : "-"}</p>
                         </button>
@@ -14526,7 +14526,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <button
                   onClick={() => { setOpenFileId(null); setEditingFileServices(false); }}
-                  className="mb-4 text-stone-500 hover:text-neutral-900 text-sm font-semibold flex items-center gap-1.5"
+                  className="mb-4 text-stone-500 hover:text-amber-800 text-sm font-semibold flex items-center gap-1.5"
                 >
                   <ArrowLeft size={15} /> Back to files
                 </button>
@@ -14540,7 +14540,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => handlePrintFile(openFile)}
-                        className="text-stone-400 hover:text-neutral-900 p-1.5"
+                        className="text-stone-400 hover:text-amber-800 p-1.5"
                         title="Print"
                       >
                         <Printer size={18} />
@@ -14550,8 +14550,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         onClick={() => setEditingFileServices((v) => !v)}
                         className={
                           editingFileServices
-                            ? "bg-neutral-900 text-white text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
-                            : "text-neutral-900 border border-neutral-900 hover:bg-neutral-50 text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
+                            ? "bg-amber-800 text-white text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
+                            : "text-amber-800 border border-amber-800 hover:bg-amber-50 text-xs font-semibold rounded-xl px-3 py-1.5 flex items-center gap-1.5"
                         }
                       >
                         <Pencil size={13} /> {editingFileServices ? "Done editing" : "Edit services"}
@@ -14573,7 +14573,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <label className="text-xs text-stone-500 block mb-1">Serial</label>
                       <input
                         type="text"
-                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={openFile.serial || ""}
                         onChange={(e) => updateFileField(openFile.id, "serial", e.target.value)}
                       />
@@ -14583,7 +14583,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <input
                         type="date"
                         max={todayDateStr()}
-                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={openFile.createdAt || ""}
                         onChange={(e) =>
                           e.target.value &&
@@ -14596,7 +14596,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <input
                         type="text"
                         list="file-company-list"
-                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={openFile.company || ""}
                         onChange={(e) => updateFileField(openFile.id, "company", e.target.value)}
                       />
@@ -14610,7 +14610,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <label className="text-xs text-stone-500 block mb-1">Notes</label>
                       <input
                         type="text"
-                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                        className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                         value={openFile.notes || ""}
                         onChange={(e) => updateFileField(openFile.id, "notes", e.target.value)}
                       />
@@ -14620,7 +14620,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   {editingFileServices && (
                     <button
                       onClick={() => setShowFilePicker(true)}
-                      className="mb-4 text-neutral-900 border border-neutral-900 hover:bg-neutral-50 text-xs font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5"
+                      className="mb-4 text-amber-800 border border-amber-800 hover:bg-amber-50 text-xs font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5"
                     >
                       <Plus size={14} /> Add service
                     </button>
@@ -14656,7 +14656,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                           onClick={() => viewFileItemDetails(it, { fileId: openFile.id, itemId: it.id })}
                           className="min-w-0 text-left flex-1"
                         >
-                          <p className="text-xs text-neutral-900 font-semibold">{FILE_SOURCE_LABELS[it.sourceType] || it.sourceType}</p>
+                          <p className="text-xs text-amber-800 font-semibold">{FILE_SOURCE_LABELS[it.sourceType] || it.sourceType}</p>
                           <p className="text-sm text-stone-900 truncate">{r.label}</p>
                           <p className="text-xs text-stone-400">{r.date ? formatDisplayDate(r.date) : "-"}</p>
                         </button>
@@ -14713,7 +14713,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         onClick={() => setFilePickerTab(tab.key)}
                         className={`flex items-center gap-1.5 text-xs font-semibold rounded-xl px-3 py-1.5 border ${
                           filePickerTab === tab.key
-                            ? "bg-neutral-900 text-white border-neutral-900"
+                            ? "bg-amber-800 text-white border-amber-800"
                             : "bg-white text-stone-600 border-stone-300 hover:bg-stone-50"
                         }`}
                       >
@@ -14735,7 +14735,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                               else await addItemToFile(openFile.id, "flights", t);
                               setShowFilePicker(false);
                             }}
-                            className="w-full text-left border border-stone-200 rounded-xl px-3 py-2 hover:bg-neutral-50 hover:border-neutral-300 flex items-center justify-between gap-2"
+                            className="w-full text-left border border-stone-200 rounded-xl px-3 py-2 hover:bg-amber-50 hover:border-amber-300 flex items-center justify-between gap-2"
                           >
                             <span className="text-sm text-stone-800 truncate">
                               {routeLabel(t)} · {getCustomers(t).map((c) => c.name).filter(Boolean).join(", ") || "-"}
@@ -14757,7 +14757,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                               else await addItemToFile(openFile.id, "hotels", h);
                               setShowFilePicker(false);
                             }}
-                            className="w-full text-left border border-stone-200 rounded-xl px-3 py-2 hover:bg-neutral-50 hover:border-neutral-300 flex items-center justify-between gap-2"
+                            className="w-full text-left border border-stone-200 rounded-xl px-3 py-2 hover:bg-amber-50 hover:border-amber-300 flex items-center justify-between gap-2"
                           >
                             <span className="text-sm text-stone-800 truncate">
                               {h.hotel || "Hotel"}{h.customer ? ` · ${h.customer}` : ""}
@@ -14779,7 +14779,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                               else await addItemToFile(openFile.id, "visa", v);
                               setShowFilePicker(false);
                             }}
-                            className="w-full text-left border border-stone-200 rounded-xl px-3 py-2 hover:bg-neutral-50 hover:border-neutral-300 flex items-center justify-between gap-2"
+                            className="w-full text-left border border-stone-200 rounded-xl px-3 py-2 hover:bg-amber-50 hover:border-amber-300 flex items-center justify-between gap-2"
                           >
                             <span className="text-sm text-stone-800 truncate">
                               {v.visaType || "Visa"} · {(v.customers || []).map((c) => c.name).filter(Boolean).join(", ") || "-"}
@@ -14801,7 +14801,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                               else await addItemToFile(openFile.id, "cars", c);
                               setShowFilePicker(false);
                             }}
-                            className="w-full text-left border border-stone-200 rounded-xl px-3 py-2 hover:bg-neutral-50 hover:border-neutral-300 flex items-center justify-between gap-2"
+                            className="w-full text-left border border-stone-200 rounded-xl px-3 py-2 hover:bg-amber-50 hover:border-amber-300 flex items-center justify-between gap-2"
                           >
                             <span className="text-sm text-stone-800 truncate">
                               {c.routeFrom || "-"} → {c.routeTo || "-"}{c.customerName ? ` · ${c.customerName}` : ""}
@@ -14852,7 +14852,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           const marginPct = totalRevenue ? (totalProfit / totalRevenue) * 100 : 0;
 
           const SECTION_META = {
-            flights: { label: "Flights", color: "bg-neutral-800" },
+            flights: { label: "Flights", color: "bg-amber-700" },
             hotels: { label: "Hotels", color: "bg-amber-600" },
             visa: { label: "Visa", color: "bg-indigo-600" },
             cars: { label: "Transportation", color: "bg-rose-600" },
@@ -14956,7 +14956,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div>
               <div className="mb-5">
                 <h2 className="text-base font-bold text-stone-800 flex items-center gap-2">
-                  <BarChart3 size={18} className="text-neutral-900" />
+                  <BarChart3 size={18} className="text-amber-800" />
                   Business Analytics
                 </h2>
                 <p className="text-xs text-stone-500 mt-0.5">
@@ -14982,7 +14982,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 </div>
                 <div className="bg-white rounded-2xl border border-stone-200 p-4">
                   <p className="text-xs text-stone-500 mb-1">Profit Margin</p>
-                  <p className={`text-lg font-bold ${marginPct >= 0 ? "text-neutral-900" : "text-red-600"}`}>
+                  <p className={`text-lg font-bold ${marginPct >= 0 ? "text-amber-800" : "text-red-600"}`}>
                     {fmt(marginPct)}%
                   </p>
                 </div>
@@ -15034,12 +15034,12 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     <div key={m.month} className="flex-1 flex flex-col items-center justify-end h-full gap-1">
                       <div className="w-full flex items-end justify-center gap-1 h-full">
                         <div
-                          className="w-1/2 max-w-[18px] rounded-t-md bg-neutral-200"
+                          className="w-1/2 max-w-[18px] rounded-t-md bg-amber-200"
                           style={{ height: `${Math.max(2, (m.revenue / maxMonthlyRevenue) * 100)}%` }}
                           title={`Revenue: ${fmt(m.revenue)} EGP`}
                         />
                         <div
-                          className={`w-1/2 max-w-[18px] rounded-t-md ${m.profit >= 0 ? "bg-neutral-800" : "bg-red-400"}`}
+                          className={`w-1/2 max-w-[18px] rounded-t-md ${m.profit >= 0 ? "bg-amber-700" : "bg-red-400"}`}
                           style={{ height: `${Math.max(2, (Math.abs(m.profit) / maxMonthlyRevenue) * 100)}%` }}
                           title={`Profit: ${fmt(m.profit)} EGP`}
                         />
@@ -15049,8 +15049,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   ))}
                 </div>
                 <div className="flex items-center gap-4 mt-3 text-[11px] text-stone-500">
-                  <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-neutral-200" /> Revenue</span>
-                  <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-neutral-800" /> Profit</span>
+                  <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-amber-200" /> Revenue</span>
+                  <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-amber-700" /> Profit</span>
                 </div>
               </div>
 
@@ -15098,8 +15098,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         onClick={() => setEmpSalesRange(opt.key)}
                         className={`text-[11px] font-semibold rounded-lg px-2.5 py-1.5 border transition-colors ${
                           empSalesRange === opt.key
-                            ? "bg-neutral-900 text-white border-neutral-900"
-                            : "bg-white text-stone-500 border-stone-200 hover:border-neutral-300 hover:text-neutral-900"
+                            ? "bg-amber-800 text-white border-amber-800"
+                            : "bg-white text-stone-500 border-stone-200 hover:border-amber-300 hover:text-amber-800"
                         }`}
                       >
                         {opt.label}
@@ -15114,14 +15114,14 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       type="date"
                       value={empSalesFrom}
                       onChange={(e) => setEmpSalesFrom(e.target.value)}
-                      className="border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                      className="border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-amber-700"
                     />
                     <span className="text-xs text-stone-400">to</span>
                     <input
                       type="date"
                       value={empSalesTo}
                       onChange={(e) => setEmpSalesTo(e.target.value)}
-                      className="border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                      className="border border-stone-300 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-amber-700"
                     />
                   </div>
                 )}
@@ -15180,8 +15180,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               onClick={() => setAccountsTab(tab.key)}
               className={`shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-xl border text-xs font-semibold transition-colors ${
                 accountsTab === tab.key
-                  ? "bg-neutral-900 text-white border-neutral-900"
-                  : "bg-white text-stone-500 border-stone-200 hover:border-neutral-300 hover:text-neutral-900"
+                  ? "bg-amber-800 text-white border-amber-800"
+                  : "bg-white text-stone-500 border-stone-200 hover:border-amber-300 hover:text-amber-800"
               }`}
             >
               <tab.icon size={15} />
@@ -15210,7 +15210,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               </div>
               <div className="bg-white rounded-2xl border border-stone-200 p-4">
                 <p className="text-xs text-stone-500 mb-1">{at("totalTreasuryBalance")}</p>
-                <p className="text-lg font-bold text-neutral-900">{fmt(totalTreasuryBalance)} {acctCurrency}</p>
+                <p className="text-lg font-bold text-amber-800">{fmt(totalTreasuryBalance)} {acctCurrency}</p>
               </div>
               <div className="bg-white rounded-2xl border border-stone-200 p-4">
                 <p className="text-xs text-stone-500 mb-1">{at("totalOwedSuppliers")}</p>
@@ -15253,7 +15253,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 value={supplierQuery}
                 onChange={(e) => setSupplierQuery(e.target.value)}
                 placeholder={at("searchSupplier")}
-                className="w-full border border-stone-300 rounded-xl pr-9 pl-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="w-full border border-stone-300 rounded-xl pr-9 pl-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
               />
             </div>
             <div className="bg-white rounded-2xl border border-stone-200 overflow-x-auto" style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-x pan-y", overscrollBehaviorX: "contain" }}>
@@ -15275,7 +15275,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <tr
                         key={s.supplier}
                         onClick={() => setViewingSupplier(s.supplier)}
-                        className="hover:bg-neutral-50 cursor-pointer"
+                        className="hover:bg-amber-50 cursor-pointer"
                       >
                         <td className="px-3 py-2 font-semibold text-stone-800 whitespace-nowrap">{s.supplier}</td>
                         <td className="px-3 py-2 text-stone-500 text-xs whitespace-nowrap">{s.sections.map((x) => sectionLabel(x)).join(accountsLang === "en" ? ", " : "، ") || "-"}</td>
@@ -15300,7 +15300,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 value={customerQuery}
                 onChange={(e) => setCustomerQuery(e.target.value)}
                 placeholder={at("searchCustomer")}
-                className="w-full border border-stone-300 rounded-xl pr-9 pl-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                className="w-full border border-stone-300 rounded-xl pr-9 pl-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
               />
             </div>
             <div className="bg-white rounded-2xl border border-stone-200 overflow-x-auto" style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-x pan-y", overscrollBehaviorX: "contain" }}>
@@ -15322,7 +15322,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       <tr
                         key={c.customer}
                         onClick={() => setViewingCustomer(c.customer)}
-                        className="hover:bg-neutral-50 cursor-pointer"
+                        className="hover:bg-amber-50 cursor-pointer"
                       >
                         <td className="px-3 py-2 font-semibold text-stone-800 whitespace-nowrap">{c.customer}</td>
                         <td className="px-3 py-2 text-stone-500 text-xs whitespace-nowrap">{c.sections.map((x) => sectionLabel(x)).join(accountsLang === "en" ? ", " : "، ") || "-"}</td>
@@ -15345,7 +15345,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <h3 className="text-sm font-bold text-stone-700">{at("accountsAndTreasuries")}</h3>
               <button
                 onClick={() => { setTreasuryForm(getEmptyTreasuryAccountForm()); setTreasuryAccountEditingId(null); setShowTreasuryAccountForm(true); }}
-                className="flex items-center gap-1 text-xs font-semibold text-neutral-900 bg-neutral-50 hover:bg-neutral-100 rounded-lg px-3 py-1.5"
+                className="flex items-center gap-1 text-xs font-semibold text-amber-800 bg-amber-50 hover:bg-amber-100 rounded-lg px-3 py-1.5"
               >
                 <Plus size={14} /> {at("addAccount")}
               </button>
@@ -15362,7 +15362,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       {a.name}
                     </div>
                     <div className="flex items-center gap-1">
-                      <button onClick={() => handleEditTreasuryAccountClick(a)} className="text-stone-400 hover:text-neutral-800"><Pencil size={14} /></button>
+                      <button onClick={() => handleEditTreasuryAccountClick(a)} className="text-stone-400 hover:text-amber-700"><Pencil size={14} /></button>
                       <button onClick={() => handleDeleteTreasuryAccount(a.id)} className="text-stone-400 hover:text-red-600"><Trash2 size={14} /></button>
                     </div>
                   </div>
@@ -15389,7 +15389,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 </select>
                 <button
                   onClick={() => { setTreasuryEntryForm(getEmptyTreasuryEntryForm()); setShowTreasuryEntryForm(true); }}
-                  className="flex items-center gap-1 text-xs font-semibold text-neutral-900 bg-neutral-50 hover:bg-neutral-100 rounded-lg px-3 py-1.5"
+                  className="flex items-center gap-1 text-xs font-semibold text-amber-800 bg-amber-50 hover:bg-amber-100 rounded-lg px-3 py-1.5"
                 >
                   <Plus size={14} /> {at("manualEntry")}
                 </button>
@@ -15463,7 +15463,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               </select>
               <button
                 onClick={() => { setExpenseForm(getEmptyExpenseForm()); setExpenseEditingId(null); setShowExpenseForm(true); }}
-                className="flex items-center gap-1 text-xs font-semibold text-neutral-900 bg-neutral-50 hover:bg-neutral-100 rounded-lg px-3 py-1.5"
+                className="flex items-center gap-1 text-xs font-semibold text-amber-800 bg-amber-50 hover:bg-amber-100 rounded-lg px-3 py-1.5"
               >
                 <Plus size={14} /> {at("addExpense")}
               </button>
@@ -15493,7 +15493,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                         <td className="px-3 py-2 font-semibold text-red-600 whitespace-nowrap">{fmt(parseFloat(e.amount) || 0)}</td>
                         <td className="px-3 py-2">
                           <div className="flex items-center gap-1.5 justify-end">
-                            <button onClick={() => handleEditExpenseClick(e)} className="text-stone-400 hover:text-neutral-800"><Pencil size={14} /></button>
+                            <button onClick={() => handleEditExpenseClick(e)} className="text-stone-400 hover:text-amber-700"><Pencil size={14} /></button>
                             <button onClick={() => handleDeleteExpense(e.id)} className="text-stone-400 hover:text-red-600"><Trash2 size={14} /></button>
                           </div>
                         </td>
@@ -15519,7 +15519,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   key={r.key}
                   onClick={() => setReportsRange(r.key)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold border ${
-                    reportsRange === r.key ? "bg-neutral-900 text-white border-neutral-900" : "bg-white text-stone-500 border-stone-200"
+                    reportsRange === r.key ? "bg-amber-800 text-white border-amber-800" : "bg-white text-stone-500 border-stone-200"
                   }`}
                 >
                   {r.label}
@@ -15534,7 +15534,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               )}
               <button
                 onClick={handleExportAccountsReport}
-                className="mr-auto flex items-center gap-1.5 text-xs font-semibold text-white bg-gradient-to-b from-neutral-800 to-black rounded-lg px-3 py-1.5"
+                className="mr-auto flex items-center gap-1.5 text-xs font-semibold text-white bg-gradient-to-b from-amber-700 to-amber-900 rounded-lg px-3 py-1.5"
               >
                 <Download size={14} /> {at("exportExcel")}
               </button>
@@ -15605,7 +15605,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             {currentUser.isAdmin && (
               <button
                 onClick={() => dispatchLicense({ showPanel: true })}
-                className="bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-neutral-900/30 ring-1 ring-inset ring-white/10 transition-colors"
+                className="bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-amber-800/30 ring-1 ring-inset ring-white/10 transition-colors"
               >
                 Activate license
               </button>
@@ -15671,7 +15671,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           <div className="max-w-3xl mx-auto p-4 md:p-6">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
-                <div className="bg-gradient-to-b from-neutral-800 to-black text-white rounded-xl p-2 shadow-sm shadow-neutral-900/30">
+                <div className="bg-gradient-to-b from-amber-700 to-amber-900 text-white rounded-xl p-2 shadow-sm shadow-amber-800/30">
                   <Ticket size={18} />
                 </div>
                 <h1 className="text-lg md:text-xl font-bold text-stone-900" style={{ fontFamily: "'Fraunces', serif" }}>Ticket details</h1>
@@ -15687,7 +15687,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="flex flex-wrap items-center gap-2 mb-4">
               <button
                 onClick={() => handlePrintTicket(viewingTicket)}
-                className="border border-stone-300 text-stone-600 hover:text-neutral-900 hover:border-neutral-800 text-sm font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5"
+                className="border border-stone-300 text-stone-600 hover:text-amber-800 hover:border-amber-700 text-sm font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5"
               >
                 <Printer size={15} /> Print
               </button>
@@ -15700,7 +15700,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               {(currentUser.isAdmin || canAddTickets) && (
                 <button
                   onClick={() => { navigateToSection("flights"); handleDuplicateTicket(viewingTicket, closeTicketDetail); }}
-                  className="border border-stone-300 text-stone-600 hover:text-neutral-900 hover:border-neutral-800 text-sm font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5"
+                  className="border border-stone-300 text-stone-600 hover:text-amber-800 hover:border-amber-700 text-sm font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5"
                 >
                   <Copy size={15} /> Duplicate
                 </button>
@@ -15708,7 +15708,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               {(currentUser.isAdmin || canEditTickets) && (
                 <button
                   onClick={() => { navigateToSection("flights"); handleEdit(viewingTicket, closeTicketDetail); }}
-                  className="border border-stone-300 text-stone-600 hover:text-neutral-900 hover:border-neutral-800 text-sm font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5"
+                  className="border border-stone-300 text-stone-600 hover:text-amber-800 hover:border-amber-700 text-sm font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5"
                 >
                   <Pencil size={15} /> Edit
                 </button>
@@ -15742,7 +15742,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   <p className="text-xs text-stone-400 mb-1">Company</p>
                   <p className="text-sm font-medium text-stone-800">
                     {viewingTicket.company && viewingTicket.company.trim() ? (
-                      <>{viewingTicket.company} <span className="text-neutral-800 font-semibold">(Corporate)</span></>
+                      <>{viewingTicket.company} <span className="text-amber-700 font-semibold">(Corporate)</span></>
                     ) : (
                       <span className="text-stone-400 italic">Individual</span>
                     )}
@@ -15922,7 +15922,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div className="p-4 md:p-5">
                 <p className="text-xs text-stone-400 mb-2">Notes</p>
                 <textarea
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 min-h-[100px]"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 min-h-[100px]"
                   value={notesDraft}
                   onChange={(e) => { setNotesDraft(e.target.value.toUpperCase()); setNotesSaved(false); }}
                   placeholder="No notes yet — add some here"
@@ -15934,7 +15934,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     className={`text-sm font-semibold rounded-xl px-4 py-2 flex items-center gap-1.5 transition-colors ${
                       notesDraft === (viewingTicket.notes || "")
                         ? "bg-stone-200 text-stone-400 cursor-not-allowed"
-                        : "bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white shadow-sm shadow-neutral-900/30 ring-1 ring-inset ring-white/10"
+                        : "bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white shadow-sm shadow-amber-800/30 ring-1 ring-inset ring-white/10"
                     }`}
                   >
                     <Check size={15} /> Save notes
@@ -16023,7 +16023,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   confirmDialog.onConfirm();
                   setConfirmDialog(null);
                 }}
-                className="bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-xl px-3 py-2 shadow-sm shadow-neutral-900/30 transition-colors"
+                className="bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-xl px-3 py-2 shadow-sm shadow-amber-800/30 transition-colors"
               >
                 Confirm
               </button>
@@ -16037,7 +16037,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           <div className="bg-white rounded-2xl border border-stone-200 p-5 w-full max-w-lg max-h-[85vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-stone-900 flex items-center gap-1.5">
-                <Bell size={16} className="text-neutral-900" /> Requests
+                <Bell size={16} className="text-amber-800" /> Requests
               </h3>
               <button onClick={() => setShowRequestsPanel(false)} className="text-stone-400 hover:text-stone-700 p-1">
                 <X size={16} />
@@ -16048,7 +16048,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             <div className="border border-stone-200 rounded-xl p-3 mb-4 space-y-2">
               <p className="text-xs text-stone-500">New request</p>
               <select
-                className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 bg-white"
+                className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 bg-white"
                 value={newRequestTo}
                 onChange={(e) => setNewRequestTo(e.target.value)}
               >
@@ -16060,7 +16060,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   ))}
               </select>
               <textarea
-                className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800 resize-none"
+                className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 resize-none"
                 rows={2}
                 placeholder="What do you need from them?"
                 value={newRequestMessage}
@@ -16069,7 +16069,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               {requestSendError && <p className="text-xs text-red-600">{requestSendError}</p>}
               <button
                 onClick={handleSendRequest}
-                className="w-full bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-xl px-3 py-2 shadow-sm shadow-neutral-900/30 transition-colors flex items-center justify-center gap-1.5"
+                className="w-full bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-xl px-3 py-2 shadow-sm shadow-amber-800/30 transition-colors flex items-center justify-center gap-1.5"
               >
                 <Send size={14} /> Send request
               </button>
@@ -16153,10 +16153,10 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
       {/* Incoming-request notification popup — floats in the corner without blocking the
           rest of the app, so it works as a lightweight "you've got a new request" alert. */}
       {incomingRequestPopup && (
-        <div className="fixed top-4 right-4 z-50 w-full max-w-xs bg-white rounded-2xl border border-neutral-200 shadow-xl shadow-black/10 p-4">
+        <div className="fixed top-4 right-4 z-50 w-full max-w-xs bg-white rounded-2xl border border-amber-200 shadow-xl shadow-black/10 p-4">
           <div className="flex items-start justify-between gap-2 mb-1">
             <p className="text-sm font-semibold text-stone-900 flex items-center gap-1.5">
-              <Bell size={14} className="text-neutral-900" /> New request
+              <Bell size={14} className="text-amber-800" /> New request
             </p>
             <button onClick={() => setIncomingRequestPopup(null)} className="text-stone-400 hover:text-stone-700 p-0.5">
               <X size={14} />
@@ -16179,7 +16179,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 setShowRequestsPanel(true);
                 setIncomingRequestPopup(null);
               }}
-              className="flex-1 text-xs font-semibold text-neutral-900 border border-neutral-200 bg-neutral-50 hover:bg-neutral-100 rounded-full px-2.5 py-1.5"
+              className="flex-1 text-xs font-semibold text-amber-800 border border-amber-200 bg-amber-50 hover:bg-amber-100 rounded-full px-2.5 py-1.5"
             >
               Open
             </button>
@@ -16225,7 +16225,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           >
             <div className="flex items-center justify-between mb-1">
               <h2 className="font-semibold text-stone-900 flex items-center gap-2">
-                <Lock size={16} className="text-neutral-900" /> Change your password
+                <Lock size={16} className="text-amber-800" /> Change your password
               </h2>
               <button onClick={() => setShowChangePassword(false)} className="text-stone-400 hover:text-stone-700 p-1">
                 <X size={16} />
@@ -16240,24 +16240,24 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Current password</label>
                 <input type="password"
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={currentPasswordInput} onChange={(e) => setCurrentPasswordInput(e.target.value)} />
               </div>
               <div>
                 <label className="text-xs text-stone-500 block mb-1">New password</label>
                 <input type="password"
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={newPasswordInput} onChange={(e) => setNewPasswordInput(e.target.value)} />
               </div>
               <div>
                 <label className="text-xs text-stone-500 block mb-1">Confirm new password</label>
                 <input type="password"
-                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-800"
+                  className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700"
                   value={confirmPasswordInput} onChange={(e) => setConfirmPasswordInput(e.target.value)} />
               </div>
             </div>
             <button onClick={handleChangePassword}
-              className="w-full mt-4 bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-neutral-900/30 ring-1 ring-inset ring-white/10 transition-colors">
+              className="w-full mt-4 bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-amber-800/30 ring-1 ring-inset ring-white/10 transition-colors">
               Update password
             </button>
           </div>
@@ -16329,7 +16329,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
 
             <button
               onClick={createFileAndCopySource}
-              className="mb-3 bg-gradient-to-b from-neutral-800 to-black hover:from-neutral-600 hover:to-neutral-900 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-neutral-900/30 flex items-center justify-center gap-2"
+              className="mb-3 bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-xl px-4 py-2 shadow-sm shadow-amber-800/30 flex items-center justify-center gap-2"
             >
               <Plus size={15} /> New file (auto serial number)
             </button>
@@ -16342,7 +16342,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 value={copyPickerSearch}
                 onChange={(e) => setCopyPickerSearch(e.target.value)}
                 placeholder="Search by file number..."
-                className="w-full border border-stone-200 rounded-xl pl-8 pr-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-600/30 focus:border-neutral-600"
+                className="w-full border border-stone-200 rounded-xl pl-8 pr-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-600/30 focus:border-amber-600"
               />
             </div>
             <div className="border border-stone-200 rounded-xl divide-y divide-stone-100 overflow-y-auto">
@@ -16365,7 +16365,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   <button
                     key={f.id}
                     onClick={() => copySourceToFile(f.id)}
-                    className="w-full text-left px-3 py-2 hover:bg-neutral-50 text-sm flex items-center justify-between gap-2"
+                    className="w-full text-left px-3 py-2 hover:bg-amber-50 text-sm flex items-center justify-between gap-2"
                   >
                     <span className="truncate">
                       {f.serial} {f.company ? `· ${f.company}` : ""}
@@ -16396,7 +16396,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => printIframeRef.current && printIframeRef.current.contentWindow.print()}
-                  className="bg-gradient-to-b from-neutral-800 to-black hover:brightness-110 text-white text-xs font-semibold rounded-xl px-3 py-1.5 inline-flex items-center gap-1.5"
+                  className="bg-gradient-to-b from-amber-700 to-amber-900 hover:brightness-110 text-white text-xs font-semibold rounded-xl px-3 py-1.5 inline-flex items-center gap-1.5"
                 >
                   <Printer size={13} /> Print
                 </button>
@@ -16459,7 +16459,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <textarea value={expenseForm.note} onChange={(e) => setExpenseForm({ ...expenseForm, note: e.target.value })} className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm" rows={2} />
               </div>
             </div>
-            <button onClick={handleSaveExpense} className="w-full mt-4 bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl py-2.5">
+            <button onClick={handleSaveExpense} className="w-full mt-4 bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl py-2.5">
               {expenseEditingId ? at("saveChanges") : at("addExpense")}
             </button>
           </div>
@@ -16490,7 +16490,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <input type="number" value={treasuryForm.openingBalance} onChange={(e) => setTreasuryForm({ ...treasuryForm, openingBalance: e.target.value })} onBlur={(e) => setTreasuryForm({ ...treasuryForm, openingBalance: addCentsOnBlur(e.target.value) })} className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm" />
               </div>
             </div>
-            <button onClick={handleSaveTreasuryAccount} className="w-full mt-4 bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl py-2.5">
+            <button onClick={handleSaveTreasuryAccount} className="w-full mt-4 bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl py-2.5">
               {treasuryAccountEditingId ? at("saveChanges") : at("addAccount")}
             </button>
           </div>
@@ -16548,7 +16548,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <input value={treasuryEntryForm.note} onChange={(e) => setTreasuryEntryForm({ ...treasuryEntryForm, note: e.target.value })} className="w-full border border-stone-300 rounded-xl px-3 py-2 text-sm" />
               </div>
             </div>
-            <button onClick={handleSaveTreasuryEntry} className="w-full mt-4 bg-gradient-to-b from-neutral-800 to-black text-white text-sm font-semibold rounded-xl py-2.5">
+            <button onClick={handleSaveTreasuryEntry} className="w-full mt-4 bg-gradient-to-b from-amber-700 to-amber-900 text-white text-sm font-semibold rounded-xl py-2.5">
               {at("saveEntry")}
             </button>
           </div>
@@ -16584,8 +16584,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     </div>
                   </div>
 
-                  <div className="bg-neutral-50/60 border border-neutral-100 rounded-2xl p-4 mb-6">
-                    <h3 className="text-xs font-bold text-black mb-3">{at("recordNewPayment")}</h3>
+                  <div className="bg-amber-50/60 border border-amber-100 rounded-2xl p-4 mb-6">
+                    <h3 className="text-xs font-bold text-amber-900 mb-3">{at("recordNewPayment")}</h3>
                     <div className="grid grid-cols-2 gap-2 mb-2">
                       <input type="date" value={supplierPaymentForm.date} onChange={(e) => setSupplierPaymentForm({ ...supplierPaymentForm, supplier: viewingSupplier, date: e.target.value })} className="border border-stone-300 rounded-lg px-2.5 py-2 text-sm" />
                       <input type="number" placeholder={at("colAmount")} value={supplierPaymentForm.amount} onChange={(e) => setSupplierPaymentForm({ ...supplierPaymentForm, supplier: viewingSupplier, amount: e.target.value })} onBlur={(e) => setSupplierPaymentForm({ ...supplierPaymentForm, supplier: viewingSupplier, amount: addCentsOnBlur(e.target.value) })} className="border border-stone-300 rounded-lg px-2.5 py-2 text-sm" />
@@ -16595,7 +16595,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       </select>
                       <input placeholder={at("notesOptional")} value={supplierPaymentForm.note} onChange={(e) => setSupplierPaymentForm({ ...supplierPaymentForm, supplier: viewingSupplier, note: e.target.value })} className="border border-stone-300 rounded-lg px-2.5 py-2 text-sm col-span-2" />
                     </div>
-                    <button onClick={handleSaveSupplierPayment} className="w-full bg-neutral-900 hover:bg-black text-white text-xs font-semibold rounded-lg py-2">{at("recordPayment")}</button>
+                    <button onClick={handleSaveSupplierPayment} className="w-full bg-amber-800 hover:bg-amber-900 text-white text-xs font-semibold rounded-lg py-2">{at("recordPayment")}</button>
                   </div>
 
                   <h3 className="text-xs font-bold text-stone-600 mb-2">{at("paymentHistory")}</h3>
@@ -16667,8 +16667,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                     </div>
                   </div>
 
-                  <div className="bg-neutral-50/60 border border-neutral-100 rounded-2xl p-4 mb-6">
-                    <h3 className="text-xs font-bold text-black mb-3">{at("recordNewCollection")}</h3>
+                  <div className="bg-amber-50/60 border border-amber-100 rounded-2xl p-4 mb-6">
+                    <h3 className="text-xs font-bold text-amber-900 mb-3">{at("recordNewCollection")}</h3>
                     <div className="grid grid-cols-2 gap-2 mb-2">
                       <input type="date" value={customerPaymentForm.date} onChange={(e) => setCustomerPaymentForm({ ...customerPaymentForm, customer: viewingCustomer, date: e.target.value })} className="border border-stone-300 rounded-lg px-2.5 py-2 text-sm" />
                       <input type="number" placeholder={at("colAmount")} value={customerPaymentForm.amount} onChange={(e) => setCustomerPaymentForm({ ...customerPaymentForm, customer: viewingCustomer, amount: e.target.value })} onBlur={(e) => setCustomerPaymentForm({ ...customerPaymentForm, customer: viewingCustomer, amount: addCentsOnBlur(e.target.value) })} className="border border-stone-300 rounded-lg px-2.5 py-2 text-sm" />
@@ -16678,7 +16678,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                       </select>
                       <input placeholder={at("notesOptional")} value={customerPaymentForm.note} onChange={(e) => setCustomerPaymentForm({ ...customerPaymentForm, customer: viewingCustomer, note: e.target.value })} className="border border-stone-300 rounded-lg px-2.5 py-2 text-sm col-span-2" />
                     </div>
-                    <button onClick={handleSaveCustomerPayment} className="w-full bg-neutral-900 hover:bg-black text-white text-xs font-semibold rounded-lg py-2">{at("recordCollection")}</button>
+                    <button onClick={handleSaveCustomerPayment} className="w-full bg-amber-800 hover:bg-amber-900 text-white text-xs font-semibold rounded-lg py-2">{at("recordCollection")}</button>
                   </div>
 
                   <h3 className="text-xs font-bold text-stone-600 mb-2">{at("collectionHistory")}</h3>
