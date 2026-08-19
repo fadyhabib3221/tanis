@@ -14,7 +14,7 @@ import {
   MapPin, Compass, Luggage, Anchor, Sparkles, Plus, Printer, SlidersHorizontal, ChevronDown,
   History, Bell, Send, Landmark, Receipt, PieChart, ArrowUpCircle, ArrowDownCircle,
   Banknote, HandCoins, ClipboardList, Globe, Key, Truck, Filter, Settings, Clock, Copy,
-  BarChart3, GripVertical, Unlock, Monitor, CalendarOff,
+  BarChart3, GripVertical, Unlock, Monitor, CalendarOff, Ban,
 } from "lucide-react";
 
 // A small passport-shaped icon (booklet with a globe emblem) for the Visa section, drawn
@@ -5676,13 +5676,13 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
     // this check — the ticket number stops being mandatory once a PNR is entered.
     const customersValid =
       customers.length > 0 &&
-      customers.every((c) => c.name.trim() && (c.ticketNumber.trim() || (c.pnrReference || "").trim()));
+      customers.every((c) => (c.name || "").trim() && ((c.ticketNumber || "").trim() || (c.pnrReference || "").trim()));
     // A multi-destination route needs at least two filled-in stops; a regular route
     // needs both From and To.
     const cleanDestinations = (form.destinations || []).map((d) => (d || "").trim()).filter(Boolean);
     const routeValid = form.multiDestination
       ? cleanDestinations.length >= 2
-      : form.from.trim() && form.to.trim();
+      : (form.from || "").trim() && (form.to || "").trim();
     const paxCounts = ticketPaxCounts({ customers });
     const childPriceValid = paxCounts.child === 0 || (form.childNetPrice !== "" && form.childSoldPrice !== "");
     const infantPriceValid = paxCounts.infant === 0 || (form.infantNetPrice !== "" && form.infantSoldPrice !== "");
@@ -5790,6 +5790,12 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
       childSoldPrice: t.childSoldPrice ?? "",
       infantNetPrice: t.infantNetPrice ?? "",
       infantSoldPrice: t.infantSoldPrice ?? "",
+      // Backward compatibility: older records saved before flightNumber/supplier
+      // existed (or with them left blank) can have these as undefined. Several
+      // places in the form call .trim() on them directly, so they must always be
+      // strings, never undefined.
+      flightNumber: t.flightNumber || "",
+      supplier: t.supplier || "",
     });
     setSupplierOther(!!t.supplier && !(suggestions.flightSuppliers || []).includes(t.supplier));
     if (afterConfirm) afterConfirm();
@@ -5854,6 +5860,45 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
     });
   };
   const handleCancel = () => { setForm(getEmptyForm()); setSupplierOther(false); };
+
+  // Voiding a ticket keeps it visible in the table (dimmed, with a "Void" badge) but
+  // excludes its amounts from every total: the summary cards, monthly/company
+  // breakdowns, the Analysis dashboard, and exports. Unlike Delete, nothing is
+  // removed and the ticket can be un-voided at any time. Same permission as editing
+  // (admins, or employees granted "edit tickets"), since voiding changes the
+  // ticket's accounting status rather than its data.
+  const handleToggleVoidTicket = (id) => {
+    if (!currentUser.isAdmin && !canEditTickets) return;
+    const target = tickets.find((t) => t.id === id);
+    if (!target) return;
+    if (isYearLocked("flights", target.date) && !canEditClosedYear((target.date || "").slice(0, 4))) {
+      setError("This ticket is in a closed year and can't be voided. Ask a General Manager or Admin to reopen the year first.");
+      return;
+    }
+    const nextVoided = !target.voided;
+    const ticketDesc = `${(target.customers || []).map((c) => c.name).filter(Boolean).join(", ") || "ticket"} (${target.from || "?"} → ${target.to || "?"})`;
+    requestConfirm(
+      nextVoided
+        ? "Void this ticket? Its amounts will be excluded from totals until un-voided."
+        : "Un-void this ticket? Its amounts will count in totals again.",
+      () => {
+        const next = tickets.map((t) =>
+          t.id === id
+            ? {
+                ...t,
+                voided: nextVoided,
+                voidedAt: nextVoided ? new Date().toISOString() : null,
+                voidedBy: nextVoided ? currentUser.name : null,
+              }
+            : t
+        );
+        persistTickets(next);
+        recordActivity("Flights", nextVoided ? "voided" : "unvoided", `${nextVoided ? "Voided" : "Un-voided"} ticket for ${ticketDesc}`);
+        showActionToast(nextVoided ? "Ticket voided" : "Ticket un-voided");
+      }
+    );
+  };
+
 
   // Opens the full-detail view ("page") for a ticket, showing every field including notes.
   const openTicketDetail = (t) => {
@@ -7576,7 +7621,9 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
   // (not multiplied by customer count) — reducing sales by what went back to the customer
   // and adjusting profit by that same amount net of whatever the airline refunded back.
   const countAndSum = (rows) =>
-    rows.reduce(
+    rows
+      .filter((t) => !t.voided)
+      .reduce(
       (acc, t) => {
         const n = getCustomers(t).length || 1;
         const netCur = t.netCurrency || "EGP";
@@ -7623,6 +7670,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
   // recorded against, since a multi-customer booking may have just one refunded ticket.
   const ticketStatus = (t, i) => {
     const parts = [];
+    if (t.voided) parts.push("Void");
     if (i === 0 && t.isReissued) parts.push("Exchanged");
     if (refundForIndex(t, i)) parts.push("Refunded");
     return parts.join(" & ");
@@ -7680,9 +7728,9 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           "Net currency": t.netCurrency || "EGP",
           // EGP-converted figures (via the shared USD -> EGP rate) — these are what the
           // totals row below sums, so mixed-currency tickets still total correctly.
-          "Sold (EGP)": round2(ticketSoldEgp(t)),
-          "Net (EGP)": round2(ticketNetEgp(t)),
-          "Profit (EGP)": round2(ticketProfitEgp(t)),
+          "Sold (EGP)": t.voided ? 0 : round2(ticketSoldEgp(t)),
+          "Net (EGP)": t.voided ? 0 : round2(ticketNetEgp(t)),
+          "Profit (EGP)": t.voided ? 0 : round2(ticketProfitEgp(t)),
           "Company": t.company || "",
           "Supplier": t.supplier || "",
           "Status": ticketStatus(t, i),
@@ -8215,7 +8263,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           key={`${t.id}-${i}`}
           data-row-key={ticketKey}
           onClick={() => openTicketDetail(t)}
-          className={`border-t leading-tight cursor-pointer ${
+          className={`border-t leading-tight cursor-pointer ${t.voided ? "opacity-50 grayscale" : ""} ${
             isYearLocked("flights", t.date)
               ? `border-stone-200 bg-stone-200/70 grayscale hover:bg-stone-200 ${i > 0 ? "border-t-0" : ""}`
               : isHighlighted
@@ -8231,6 +8279,14 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           <td className={`px-1 py-0 font-medium ${nameText} whitespace-nowrap`}>
             <span className="inline-flex items-center gap-1.5">
               {c.name || "-"}
+              {t.voided && i === 0 && (
+                <span
+                  title="Voided — excluded from totals"
+                  className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-stone-600 bg-stone-200 border border-stone-400 rounded-full px-1.5 py-0.5"
+                >
+                  <Ban size={10} /> Void
+                </span>
+              )}
               {isMulti && i === 0 && (
                 <span
                   title={`This booking has ${customers.length} customers / tickets`}
@@ -8315,7 +8371,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           key={`${t.id}-refund-${ri}`}
           data-row-key={refundKey}
           onClick={() => openTicketDetail(t)}
-          className={`border-t border-dashed leading-tight cursor-pointer ${
+          className={`border-t border-dashed leading-tight cursor-pointer ${t.voided ? "opacity-50 grayscale" : ""} ${
             isYearLocked("flights", t.date)
               ? "border-stone-200 bg-stone-200/70 grayscale hover:bg-stone-200"
               : isHighlighted
@@ -10581,8 +10637,8 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
               {supplierOther ? (
                 <div className="flex gap-2">
                   <input
-                    className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-700 ${form.supplier.trim() ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300"}`}
-                    value={form.supplier}
+                    className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-700 ${(form.supplier || "").trim() ? "border-blue-400 text-blue-700 font-medium bg-blue-50" : "border-stone-300"}`}
+                    value={form.supplier || ""}
                     onChange={(e) => setForm({ ...form, supplier: e.target.value })}
                     placeholder="Enter supplier name"
                     autoFocus
@@ -10868,7 +10924,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                 <button
                   type="button"
                   onClick={handleFormFlightLookup}
-                  disabled={flightLookupLoading || !form.flightNumber.trim()}
+                  disabled={flightLookupLoading || !(form.flightNumber || "").trim()}
                   title={flightApiKey ? "Look up flight (AviationStack)" : "Add an AviationStack API key in \"Check flight status\" first"}
                   className="shrink-0 border border-stone-300 rounded-lg p-1.5 text-stone-600 hover:bg-stone-50 disabled:opacity-40"
                 >
@@ -14826,7 +14882,7 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
           // of the app already uses (refund-adjusted for flights, EGP-converted for
           // everything), so these numbers always agree with Accounts/Reports.
           const allDeals = [
-            ...tickets.map((t) => ({
+            ...tickets.filter((t) => !t.voided).map((t) => ({
               section: "flights", date: t.date, supplier: (t.supplier || "").trim(), employee: (t.employee || "").trim(),
               revenue: soldAfterRefund(t), cost: netAfterRefund(t), profit: profitAfterRefund(t),
             })),
@@ -15713,6 +15769,18 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
                   <Pencil size={15} /> Edit
                 </button>
               )}
+              {(currentUser.isAdmin || canEditTickets) && !viewingFileContext && (
+                <button
+                  onClick={() => handleToggleVoidTicket(viewingTicket.id)}
+                  className={
+                    viewingTicket.voided
+                      ? "border border-emerald-300 text-emerald-700 hover:text-emerald-800 hover:border-emerald-400 text-sm font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5"
+                      : "border border-stone-300 text-stone-600 hover:text-amber-700 hover:border-amber-400 text-sm font-semibold rounded-xl px-3 py-2 flex items-center gap-1.5"
+                  }
+                >
+                  <Ban size={15} /> {viewingTicket.voided ? "Un-void" : "Void"}
+                </button>
+              )}
               {(currentUser.isAdmin || canDeleteTickets) && (
                 <button
                   onClick={() => {
@@ -15733,6 +15801,15 @@ function TicketsApp({ onChangeServer, currentServerUrl } = {}) {
             </div>
 
             <div className="bg-white border border-stone-200 rounded-2xl divide-y divide-stone-100">
+              {viewingTicket.voided && (
+                <div className="bg-stone-100 border-b border-stone-200 px-4 md:px-5 py-2.5 flex items-center gap-1.5 text-stone-600 rounded-t-2xl">
+                  <Ban size={14} />
+                  <p className="text-xs font-semibold">
+                    This ticket is voided — its amounts are excluded from totals
+                    {viewingTicket.voidedBy ? ` (by ${viewingTicket.voidedBy}${viewingTicket.voidedAt ? " on " + formatDisplayDate(viewingTicket.voidedAt.slice(0, 10)) : ""})` : ""}.
+                  </p>
+                </div>
+              )}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 md:p-5">
                 <div>
                   <p className="text-xs text-stone-400 mb-1">Entered by</p>
