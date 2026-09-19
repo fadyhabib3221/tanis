@@ -49,7 +49,7 @@ npx firebase-tools deploy --only firestore:rules --project PROJECT_ID
    الشاشة دي بتظهر مرة واحدة بس وبعدها بتتقفل نهائيًا.
 2. **Settings ← Company Profile**: اكتب اسم الشركة وارفع الشعار وبيانات الاتصال. الاسم والشعار بيظهروا في القائمة الجانبية وفي كل مستند مطبوع.
 3. **Settings ← Employees**: ضيف الموظفين وحدد صلاحياتهم.
-4. الأزرار **Repair Username Logins** و **Repair Booking Ownership** مش محتاجينها في نشر جديد.
+4. زراير الإصلاح القديمة (Repair) اتشالت من الإعدادات، وتسجيل الدخول بيصلّح نفسه تلقائيًا.
 
 ## ٥. الترخيص (License / Kill-switch)
 

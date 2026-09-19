@@ -56,23 +56,15 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
-### 4. One-time: repair data added before these fixes (existing deployments only)
+### 4. Username logins (no manual step needed)
 
-If you're upgrading a deployment that already has employee accounts and
-bookings, sign in as an Admin, go to **Settings → Employees**, and run
-these two buttons once (safe to run more than once; a brand-new
-deployment with no data yet doesn't need either):
-
-- **Repair Username Logins** — backfills the `/usernames/{username}`
-  lookup doc (see `firestore.rules` and `findEmailByUsername` in
-  `lib/auth.js`) for every account created before that lookup existed.
-  Skipping it locks existing employees out of signing in by username
-  until they change their username or email.
-- **Repair Booking Ownership** — fills in the real `salesmanUid` on
-  bookings created before it existed, wherever the salesman's name
-  unambiguously matches one current employee. Needed for "Only see my
-  own bookings" (Settings → Employees → Permissions) to work precisely
-  on old records instead of falling back to a name-based approximation.
+Login is by username. The lookup entry `/usernames/{username}` is created
+together with every account, and — if it is ever missing (e.g. an account
+created before the lookup existed) — `lib/auth.js` falls back to the account's
+internal email and re-creates the entry automatically after a successful
+sign-in (see `findEmailByUsername` / `ensureUsernameMirror`, and the matching
+`/usernames` rule in `firestore.rules`). The old "Repair Username Logins" and
+"Repair Booking Ownership" buttons were removed from Settings → Employees.
 
 ## Project Structure
 
